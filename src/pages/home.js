@@ -1,12 +1,16 @@
-import "./stylepages.scss"
+import { Link } from "react-router-dom";
+import "./stylepages.scss";
 
 const HomePage = () => {
-    return ( 
-    <section>
-        <img src="./img/logo.png" alt="redberry_logo" />
-    </section> 
-    
-    );
-}
- 
+  return (
+    <section className="Home_page">
+      <img src="./img/logo.svg" alt="redberry_logo" className="logo" />
+      <hr />
+
+      <Link to="/personal">ᲠᲔᲖᲘᲣᲛᲔᲡ ᲓᲐᲛᲐᲢᲔᲑᲐ</Link>
+      <img src="./img/stamp.svg" alt="stamp" className="stamp" />
+    </section>
+  );
+};
+
 export default HomePage;
