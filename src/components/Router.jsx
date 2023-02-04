@@ -11,7 +11,7 @@ const RouterComponent = () => {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/personal" element={<Personal />} />
-      <Route path="/expirience" element={<Expirience />} />
+      <Route path="/experience" element={<Expirience />} />
       <Route path="/education" element={<Education />} />
       <Route path="/resume" element={<Resume />} />
     </Routes>

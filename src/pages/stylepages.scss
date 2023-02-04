@@ -4,6 +4,11 @@
 }
 
 .Home_page {
+    background-image: url('../assets/img/background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1080px;
     .logo {
         margin: 29px 70px 0 70px;
     }
@@ -43,4 +48,14 @@
         left: 56.5%;
         top: 410px;
     }
+}
+
+
+.page_header {
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #1A1A1A;
 }
