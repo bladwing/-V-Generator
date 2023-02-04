@@ -9,6 +9,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 1080px;
+
     .logo {
         margin: 29px 70px 0 70px;
     }
@@ -50,12 +51,62 @@
     }
 }
 
+.next_Pages {
+    background: #F9F9F9;
+    width: 1098px;
+    flex-wrap: wrap;
+
+}
 
 .page_header {
     font-family: 'Helvetica Neue';
+    display: flex;
+    flex-wrap: wrap;
     font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 29px;
-    color: #1A1A1A;
+    padding-top: 10px;
+
+    h1 {
+        height: 29px;
+        font-weight: 700;
+        font-size: 24px;
+        color: #1a1a1a;
+        margin-bottom: 12px;
+        margin-left: 149px;
+        width: 200px;
+    }
+
+
+    a {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 29px;
+        color: #1A1A1A;
+
+        img {
+            width: 12px;
+            height: 12px;
+            padding: 30px;
+            position: absolute;
+            left: 48px;
+            top: 12px;
+
+        }
+    }
+    div {
+        position: absolute;
+        width: 29px;
+        height: 24px;
+        font-weight: 400;
+        font-size: 20px;
+        left: 48%;
+        top: 4%
+    }
+
+}
+
+.header_line {
+    width: 798px;
+    margin: 0 150px;
+    border: 1px solid #1A1A1A;
+
 }
