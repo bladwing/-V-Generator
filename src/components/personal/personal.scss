@@ -1,0 +1,95 @@
+section {
+    display: flex;
+
+    .personal-input-parts {
+        margin-left: 10%;
+        font-family: 'Helvetica Neue';
+        font-style: normal;
+        font-weight: 500;
+    }
+
+    .name {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 24px;
+        justify-content: center;
+        gap: 8px;
+
+        label {
+            font-weight: 700;
+        }
+
+        span {
+            width: 100%;
+            font-family: 'Helvetica Neue';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 21px;
+            color: #2E2E2E;
+        }
+
+        input {
+            box-sizing: border-box;
+            width: 371px;
+            height: 48px;
+            background: #FFFFFF;
+            border: 1px solid #BCBCBC;
+            border-radius: 4px;
+        }
+
+        ::placeholder {
+            font-size: 16px;
+            line-height: 21px;
+            padding: 10px;
+        }
+
+        :focus::placeholder {
+            opacity: 0;
+        }
+
+        .upload-file {
+            border: none;
+            background-color: #f9f9f9;
+
+        }
+
+        textarea {
+            box-sizing: border-box;
+            min-width: 798px;
+            max-width: 798px;
+            min-height: 103px;
+            max-height: 103px;
+        }
+        .email,
+        .phone {
+            input {
+                width: 100%;
+            }
+        }
+    }
+    .submit-personal {
+        width: 151px;
+        height: 48px;
+        background: #6B40E3;
+        color: #FFFFFF;
+        border-radius: 4px;
+        font-family: 'Helvetica Neue';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 0.08em;
+        margin-left: 70%;
+        margin-bottom: 65px;
+        margin-top: 189px;
+    }
+    .live-preview {
+        display: flex;
+        text-align: center;
+        width: 822px;
+        margin-left: 15%;
+        margin-top: -5.5%
+    }
+}
