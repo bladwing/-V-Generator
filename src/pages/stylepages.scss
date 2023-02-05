@@ -12,6 +12,8 @@
 
     .logo {
         margin: 29px 70px 0 70px;
+        width: 236px;
+        height: 38px;
     }
 
     hr {
@@ -53,7 +55,7 @@
 
 .next_Pages {
     background: #F9F9F9;
-    // width: 1098px;
+    display: flex;
     width: 60%;
     flex-wrap: wrap;
 

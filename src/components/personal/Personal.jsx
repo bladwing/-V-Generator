@@ -2,9 +2,9 @@ import "./personal.scss";
 
 const Personal = () => {
   return (
-    <section>
+    <section className="personal-container">
       <form action="">
-        <table cellPadding={15} className="personal-input-parts">
+        <table cellPadding={30} className="personal-input-parts">
           <tbody className="name">
             <tr>
               <td>
@@ -28,7 +28,9 @@ const Personal = () => {
               </td>
             </tr>
             <tr>
+            <td>პირადი ფოტოს ატვირთვა</td>
               <td>
+               
                 <input
                   type="file"
                   placeholder="პირადი ფოტოს ატვირთვა"
