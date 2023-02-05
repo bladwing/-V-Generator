@@ -1,6 +1,28 @@
+import { useState } from "react";
 import "./personal.scss";
 
 const Personal = () => {
+  const [name, setName] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [profilePhoto, setProfilePhoto] = useState("");
+  const [about, setAbout] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+
+  const InputsData = {
+    name,
+    lastname,
+    profilePhoto,
+    about,
+    email,
+    phone,
+  };
+
+  const SubmitHandlet = (e) => {
+    e.preventDefault()
+    console.log(InputsData);
+  }
+
   return (
     <section className="personal-container">
       <form action="">
@@ -10,7 +32,13 @@ const Personal = () => {
               <td>
                 <label htmlFor="name">სახელი</label>
                 <br />
-                <input type="text" placeholder="ანზორი" id="name" required />
+                <input
+                  type="text"
+                  placeholder="ანზორი"
+                  id="name"
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
                 <br />
                 <span>მინიმუმ 2 ასო, ქართული ასოები</span>
               </td>
@@ -21,6 +49,7 @@ const Personal = () => {
                   type="text"
                   placeholder="მუმლაძე"
                   id="lastname"
+                  onChange={(e) => setLastname(e.target.value)}
                   required
                 />
                 <br />
@@ -28,13 +57,13 @@ const Personal = () => {
               </td>
             </tr>
             <tr>
-            <td>პირადი ფოტოს ატვირთვა</td>
+              <td>პირადი ფოტოს ატვირთვა</td>
               <td>
-               
                 <input
                   type="file"
                   placeholder="პირადი ფოტოს ატვირთვა"
                   className="upload-file"
+                  onChange={(e) => setProfilePhoto(e.target.value)}
                   required
                 />
               </td>
@@ -48,6 +77,7 @@ const Personal = () => {
                   rows="10"
                   id="about"
                   placeholder="ზოგადი ინფო შენ შესახებ"
+                  onChange={(e) => setAbout(e.target.value)}
                 ></textarea>
               </td>
             </tr>
@@ -58,6 +88,7 @@ const Personal = () => {
                   type="email"
                   id="email"
                   placeholder="anzorr666@redberry.ge"
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
                 <span>უნდა მთავრდებოდეს @redberry.ge-ით</span>
@@ -70,6 +101,8 @@ const Personal = () => {
                   type="phone"
                   placeholder="+995 551 12 34 56"
                   id="phone"
+                  onChange={(e) => setPhone(e.target.value)}
+                  required
                 />
                 <span>
                   უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს
@@ -78,7 +111,7 @@ const Personal = () => {
             </tr>
           </tbody>
         </table>
-        <button className="submit-personal">ᲨᲔᲛᲓᲔᲒᲘ</button>
+        <button className="submit-personal" onClick={SubmitHandlet}>ᲨᲔᲛᲓᲔᲒᲘ</button>
       </form>
     </section>
   );
