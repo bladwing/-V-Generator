@@ -7,27 +7,27 @@ const Education = () => {
         <thead>
           <tr>
             <td>
-              <label htmlFor="">სასწავლებელი</label>
-              <input type="text" />
+              <label htmlFor="academy">სასწავლებელი</label>
+              <input type="text" id="academy" placeholder="სასწავლებელი"/>
             </td>
           </tr>
           <tr>
             <td>
-              <label htmlFor="">ხარისხი</label>
-              <select name="" id="">
+              <label htmlFor="quality">ხარისხი</label>
+              <select name="" id="quality">
                 <option value=""></option>
               </select>
             </td>
 
             <td>
-              <label htmlFor="">დამთავრების რიცხვი</label>
-              <input type="date" />
+              <label htmlFor="eduEndDate">დამთავრების რიცხვი</label>
+              <input type="date" id="eduEndDate"/>
             </td>
           </tr>
           <tr>
             <td>
-              <label htmlFor="">აღწერა</label>
-              <textarea type="text" />
+              <label htmlFor="edu-description">აღწერა</label>
+              <textarea type="text" id="edu-description" placeholder="აღწერა"/>
             </td>
           </tr>
 
