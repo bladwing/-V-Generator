@@ -1,6 +1,5 @@
 section {
     display: flex;
-
     .personal-input-parts {
         margin-left: 10%;
         font-family: 'Helvetica Neue';
@@ -52,7 +51,16 @@ section {
         .upload-file {
             border: none;
             background-color: #f9f9f9;
-
+            .upload-button {
+                padding: 6px 14px;
+                border-radius: 4px;
+                margin-left: 20px;
+                font-size: 13px;
+                background-color: #0e80bf;
+                color: white;
+                cursor: pointer;
+                border: none;
+            }
 
         }
 

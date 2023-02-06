@@ -58,15 +58,13 @@ const Personal = () => {
               </td>
             </tr>
             <tr>
-              <td>პირადი ფოტოს ატვირთვა</td>
-              <td>
-                <input
-                  type="file"
-                  placeholder="პირადი ფოტოს ატვირთვა"
-                  className="upload-file"
-                  onChange={(e) => setProfilePhoto(e.target.value)}
-                  required
-                />
+            
+              <td className="upload-file ">
+              <label>პირადი ფოტოს ატვირთვა</label>
+                <input id="" type="file" accept="image/*" hidden />
+                <button className="upload-button" type="button">
+                  ატვირთვა
+                </button>
               </td>
             </tr>
             <tr>
