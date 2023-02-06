@@ -137,7 +137,7 @@ const Personal = () => {
             </tr>
           </tbody>
         </table>
-        <button className="submit-personal" onClick={SubmitHandler}>
+        <button className="submit-button" onClick={SubmitHandler}>
           ᲨᲔᲛᲓᲔᲒᲘ
         </button>
       </form>

@@ -1,5 +1,6 @@
+
+.submit-button,
 .link-button {
-    text-decoration: none;
     width: 151px;
     height: 48px;
     background: #6B40E3;
@@ -13,6 +14,21 @@
     letter-spacing: 0.08em;
     margin-left: 90%;
     margin-bottom: 65px;
+}
+
+.link-button {
+    text-decoration: none;
     margin-top: 189px;
     padding: 18px 60px;
+}
+
+
+.additional-button {
+    background-color: #62A1EB;
+    color: #FFFFFF;align-items: center;
+    padding: 18px 60px;
+    gap: 20px;
+    text-decoration: none;
+    border-radius: 4px;
+
 }

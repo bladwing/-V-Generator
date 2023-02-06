@@ -33,7 +33,7 @@ const Education = () => {
 
           <tr>
             <td>
-              <Link to="">სხვა სასწავლებლის დამატება</Link>
+              <Link to="" className="additional-button">სხვა სასწავლებლის დამატება</Link>
             </td>
           </tr>
           <tr>
@@ -41,7 +41,7 @@ const Education = () => {
               <Link to="/experience" className="link-button">ᲣᲙᲐᲜ</Link>
             </td>
             <td>
-              <Link to="/resume" className="link-button">ᲓᲐᲡᲠᲣᲚᲔᲑᲐ</Link>
+              <button className="submit-button">ᲓᲐᲡᲠᲣᲚᲔᲑᲐ</button>
             </td>
           </tr>
         </thead>

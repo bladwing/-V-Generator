@@ -1,5 +1,6 @@
 section {
     display: flex;
+
     .personal-input-parts {
         margin-left: 10%;
         font-family: 'Helvetica Neue';
@@ -51,6 +52,7 @@ section {
         .upload-file {
             border: none;
             background-color: #f9f9f9;
+
             .upload-button {
                 padding: 6px 14px;
                 border-radius: 4px;
@@ -79,23 +81,6 @@ section {
             }
         }
     }
-    .submit-personal {
-        width: 151px;
-        height: 48px;
-        background: #6B40E3;
-        color: #FFFFFF;
-        border-radius: 4px;
-        font-family: 'Helvetica Neue';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 20px;
-        letter-spacing: 0.08em;
-        margin-left: 90%;
-        margin-bottom: 65px;
-        margin-top: 189px;
-    }
-
 
     .live-preview {
         display: flex;
