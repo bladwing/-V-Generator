@@ -38,10 +38,10 @@ const Education = () => {
           </tr>
           <tr>
             <td>
-              <Link to="/experience">ᲣᲙᲐᲜ</Link>
+              <Link to="/experience" className="link-button">ᲣᲙᲐᲜ</Link>
             </td>
             <td>
-              <Link to="/resume">ᲓᲐᲡᲠᲣᲚᲔᲑᲐ</Link>
+              <Link to="/resume" className="link-button">ᲓᲐᲡᲠᲣᲚᲔᲑᲐ</Link>
             </td>
           </tr>
         </thead>

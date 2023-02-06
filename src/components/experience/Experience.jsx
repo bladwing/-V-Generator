@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "./experience.scss"
 
 const Experience = () => {
   return (
@@ -41,15 +42,16 @@ const Experience = () => {
           </tr>
           <tr>
             <td>
-              <Link to="/personal">ᲣᲙᲐᲜ</Link>
+              <Link to="/personal" className="link-button">ᲣᲙᲐᲜ</Link>
             </td>
             <td>
-              <Link to="">ᲨᲔᲛᲓᲔᲒᲘ</Link>
+              <Link to="/education" className="link-button">ᲨᲔᲛᲓᲔᲒᲘ</Link>
             </td>
           </tr>
         </thead>
       </table>
     </form>
+  
   );
 };
 
