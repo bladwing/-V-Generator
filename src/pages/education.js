@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import Education from "../components/education/Education";
 
-const Education = () => {
+const EducationPage = () => {
   return (
     <section className="next_Pages">
       <div className="page_header">
@@ -13,8 +14,9 @@ const Education = () => {
       </div>
       <br />
       <Link to="/resume">Next</Link>
+      <Education/>
     </section>
   );
 };
 
-export default Education;
+export default EducationPage;

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Experience from "../components/experience/Experience"
 
 const ExperiencePage = () => {
   return (
@@ -14,6 +15,7 @@ const ExperiencePage = () => {
 
       <br />
       <Link to="/education">Next</Link>
+      <Experience/>
     </section>
   );
 };

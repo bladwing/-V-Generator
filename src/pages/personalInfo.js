@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Personal from "../components/personal/Personal";
-import PersonalPreview from "../components/personal/PersonalPreview";
 
 const PersonalInfoPage = () => {
   return (
@@ -18,7 +17,6 @@ const PersonalInfoPage = () => {
       <Link to="/experience">Next</Link>
       <section>
         <Personal />
-        <PersonalPreview />
       </section>
     </section>
   );
