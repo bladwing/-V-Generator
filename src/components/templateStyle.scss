@@ -1,4 +1,3 @@
-
 .submit-button,
 .link-button {
     width: 151px;
@@ -25,10 +24,23 @@
 
 .additional-button {
     background-color: #62A1EB;
-    color: #FFFFFF;align-items: center;
+    color: #FFFFFF;
+    align-items: center;
     padding: 18px 60px;
     gap: 20px;
     text-decoration: none;
     border-radius: 4px;
 
+}
+
+.input-container label {
+    margin-left: 15%;
+}
+.long-label-inputs {
+    width: 798px;
+    height: 48px;
+    margin-left: 15%;
+    background: #FFFFFF;
+    border: 1px solid #BCBCBC;
+    border-radius: 4px;
 }

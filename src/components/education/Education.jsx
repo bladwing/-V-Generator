@@ -8,7 +8,7 @@ const Education = () => {
           <tr>
             <td>
               <label htmlFor="academy">სასწავლებელი</label>
-              <input type="text" id="academy" placeholder="სასწავლებელი"/>
+              <input type="text" id="academy" placeholder="სასწავლებელი" className="long-label-inputs"/>
             </td>
           </tr>
           <tr>
