@@ -1,6 +1,7 @@
 import { useState } from "react";
-import "./personal.scss";
 import PersonalPreview from "./PersonalPreview";
+
+import "./personal.scss";
 
 const Personal = () => {
   const [name, setName] = useState("");
