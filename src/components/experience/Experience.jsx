@@ -30,7 +30,7 @@ const Experience = () => {
           <tr>
             <td>
               <label htmlFor="jobDescription">აღწერა</label>
-              <input type="text" id="jobDescription" placeholder="აღწერა"/>
+              <textarea type="text" id="jobDescription" placeholder="აღწერა"/>
             </td>
           </tr>
 
