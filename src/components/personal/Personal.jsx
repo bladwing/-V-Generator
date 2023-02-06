@@ -10,6 +10,8 @@ const Personal = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
+  const [error, setError] = useState(false);
+
   const InputsData = {
     name,
     lastname,
@@ -19,11 +21,27 @@ const Personal = () => {
     phone,
   };
 
-  const SubmitHandlet = (e) => {
+  const SubmitHandler = (e) => {
     e.preventDefault();
-    console.log(InputsData);
+    localStorage.setItem("personalInformation", JSON.stringify([InputsData]));
   };
 
+  const LiveInputHandler = (e) => {
+    const Values = e.target.value;
+
+    const CheckName = document.getElementById("name").value.trim().length < 2;
+    CheckName === true ? setError(true) : setError(false) || setName(Values);
+
+    const CheckLastname =
+      document.getElementById("lastname").value.trim().length < 2;
+    CheckLastname === true
+      ? setError(true)
+      : setError(false) || setLastname(Values);
+  };
+
+
+
+  console.log(InputsData);
   return (
     <section className="personal-container">
       <form action="">
@@ -33,13 +51,15 @@ const Personal = () => {
               <td>
                 <label htmlFor="name">სახელი</label>
                 <br />
+
                 <input
                   type="text"
                   placeholder="ანზორი"
                   id="name"
-                  onChange={(e) => setName(e.target.value)}
-                  required
+                  style={{ border: error === true ? "1px solid red" : "" }}
+                  onChange={LiveInputHandler}
                 />
+
                 <br />
                 <span>მინიმუმ 2 ასო, ქართული ასოები</span>
               </td>
@@ -50,7 +70,8 @@ const Personal = () => {
                   type="text"
                   placeholder="მუმლაძე"
                   id="lastname"
-                  onChange={(e) => setLastname(e.target.value)}
+                  style={{ border: error === true ? "1px solid red" : "" }}
+                  onChange={LiveInputHandler}
                   required
                 />
                 <br />
@@ -58,11 +79,14 @@ const Personal = () => {
               </td>
             </tr>
             <tr>
-            
-              <td className="upload-file ">
-              <label>პირადი ფოტოს ატვირთვა</label>
-                <input id="" type="file" accept="image/*" hidden />
-                <button className="upload-button" type="button">
+              <td className="upload-file">
+                <label htmlFor="upload-photo">პირადი ფოტოს ატვირთვა</label>
+                <input id="upload-photo" type="file" accept="image/*" hidden />
+                <button
+                  className="upload-button"
+                  type="button"
+                  onClick={(e) => setProfilePhoto(e.target.value)}
+                >
                   ატვირთვა
                 </button>
               </td>
@@ -87,7 +111,7 @@ const Personal = () => {
                   type="email"
                   id="email"
                   placeholder="anzorr666@redberry.ge"
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={LiveInputHandler}
                   required
                 />
                 <span>უნდა მთავრდებოდეს @redberry.ge-ით</span>
@@ -97,10 +121,12 @@ const Personal = () => {
               <td>
                 <label htmlFor="phone">მობილურის ნომერი</label>
                 <input
-                  type="phone"
+                  type="text"
                   placeholder="+995 551 12 34 56"
                   id="phone"
-                  onChange={(e) => setPhone(e.target.value)}
+                  pattern="/^\+[0-9]{3}[0-9]{9}/g"
+                  maxLength={13}
+                  onChange={LiveInputHandler}
                   required
                 />
                 <span>
@@ -110,7 +136,7 @@ const Personal = () => {
             </tr>
           </tbody>
         </table>
-        <button className="submit-personal" onClick={SubmitHandlet}>
+        <button className="submit-personal" onClick={SubmitHandler}>
           ᲨᲔᲛᲓᲔᲒᲘ
         </button>
       </form>
