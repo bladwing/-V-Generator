@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./personal.scss";
+import PersonalPreview from "./PersonalPreview";
 
 const Personal = () => {
   const [name, setName] = useState("");
@@ -19,9 +20,9 @@ const Personal = () => {
   };
 
   const SubmitHandlet = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     console.log(InputsData);
-  }
+  };
 
   return (
     <section className="personal-container">
@@ -111,8 +112,18 @@ const Personal = () => {
             </tr>
           </tbody>
         </table>
-        <button className="submit-personal" onClick={SubmitHandlet}>ᲨᲔᲛᲓᲔᲒᲘ</button>
+        <button className="submit-personal" onClick={SubmitHandlet}>
+          ᲨᲔᲛᲓᲔᲒᲘ
+        </button>
       </form>
+      <PersonalPreview
+        name={name}
+        lastname={lastname}
+        profilePhoto={profilePhoto}
+        about={about}
+        email={email}
+        phone={phone}
+      />
     </section>
   );
 };
