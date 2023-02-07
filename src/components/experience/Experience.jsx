@@ -30,32 +30,36 @@ const Experience = () => {
             </td>
           </tr>
 
-          <tr>
+          <tr className="first-date">
             <td>
               <label htmlFor="startFrom">დაწყების რიცხვი</label>
               <input type="date" id="startFrom" className="date-inputs" />
+           
             </td>
             <td>
-              <label htmlFor="endFrom">დამთავრების რიცხვი</label>
+            <label htmlFor="endFrom">დამთავრების რიცხვი</label> 
               <input type="date" id="endFrom" className="date-inputs" />
             </td>
           </tr>
 
           <tr>
-            <td>
+            <td className="input-container">
               <label htmlFor="jobDescription">აღწერა</label>
-              <textarea type="text" id="jobDescription" placeholder="აღწერა" />
+              <textarea type="text" id="jobDescription" placeholder="როლი თანამდებობაზე და ზოგადი აღწერა" className="long-label-inputs" />
             </td>
           </tr>
-
+          <tr>
+            <td><hr /></td>
+          </tr>
+              
           <tr>
             <td>
-              <Link to="" className="additional-button">
+              <Link to="" className="additional-button add-more">
                 მეტი გამოცდილების დამატება
               </Link>
             </td>
           </tr>
-          <tr>
+          <tr className="button-container">
             <td>
               <Link to="/personal" className="link-button">
                 ᲣᲙᲐᲜ
