@@ -134,6 +134,9 @@ const Personal = () => {
             </tr>
           </tbody>
         </table>
+
+
+        
         <button className="submit-button">ᲨᲔᲛᲓᲔᲒᲘ</button>
       </form>
       <PersonalPreview

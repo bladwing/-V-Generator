@@ -17,8 +17,6 @@
 
 .submit-button,
 .link-button {
-    width: 151px;
-    height: 48px;
     background: #6B40E3;
     color: #FFFFFF;
     border-radius: 4px;
@@ -30,11 +28,15 @@
     letter-spacing: 0.08em;
 
 }
-
+.submit-button {
+    border: none;
+    width: 170px;
+    height: 53px;
+}
 .link-button {
     text-decoration: none;
     margin-top: 189px;
-    padding: 18px 60px;
+    padding: 18px 60px;    
 }
 
 
@@ -55,4 +57,14 @@
     background: #FFFFFF;
     border: 1px solid #BCBCBC;
     border-radius: 4px;
+}
+
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 900px;
+    a {
+        margin: 0px;
+    }
 }

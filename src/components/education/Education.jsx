@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import "./education.scss"
+import "./education.scss";
 
 const API = "https://resume.redberryinternship.ge/api/degrees";
 
@@ -35,8 +35,14 @@ const Education = () => {
             </tr>
             <tr>
               <td>
-                <label htmlFor="quality">ხარისხი</label><br />
-                <select name="" id="quality" onChange={(e) => (console.log(e.target.value))} className="degrees-select">
+                <label htmlFor="quality">ხარისხი</label>
+                <br />
+                <select
+                  name=""
+                  id="quality"
+                  onChange={(e) => console.log(e.target.value)}
+                  className="degrees-select"
+                >
                   <option>აირჩიეთ ხარისხი</option>
                   {grades.map((grade) => (
                     <option key={grade.id}>{grade.title}</option>
@@ -45,7 +51,8 @@ const Education = () => {
               </td>
 
               <td>
-                <label htmlFor="eduEndDate">დამთავრების რიცხვი</label><br />
+                <label htmlFor="eduEndDate">დამთავრების რიცხვი</label>
+                <br />
                 <input type="date" id="eduEndDate" />
               </td>
             </tr>
@@ -59,6 +66,11 @@ const Education = () => {
                 />
               </td>
             </tr>
+            <tr>
+              <td>
+                <hr />
+              </td>
+            </tr>
 
             <tr>
               <td>
@@ -67,18 +79,14 @@ const Education = () => {
                 </Link>
               </td>
             </tr>
-            <tr>
-              <td>
-                <Link to="/experience" className="link-button">
-                  ᲣᲙᲐᲜ
-                </Link>
-              </td>
-              <td>
-                <button className="submit-button">ᲓᲐᲡᲠᲣᲚᲔᲑᲐ</button>
-              </td>
-            </tr>
           </thead>
         </table>
+        <div className="button-container">
+          <Link to="/experience" className="link-button">
+            ᲣᲙᲐᲜ
+          </Link>
+          <button className="submit-button">ᲓᲐᲡᲠᲣᲚᲔᲑᲐ</button>
+        </div>
       </form>
     </section>
   );
