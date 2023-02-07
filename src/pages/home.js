@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <section className="Home_page">
       <img src="./img/logo.svg" alt="redberry_logo" className="logo" />
-      <hr />
+      <hr className="line-homepage"/>
 
       <Link to="/personal">ᲠᲔᲖᲘᲣᲛᲔᲡ ᲓᲐᲛᲐᲢᲔᲑᲐ</Link>
       <img src="./img/stamp.svg" alt="stamp" className="stamp" />
