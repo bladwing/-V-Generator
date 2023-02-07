@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import "./education.scss"
 
 const API = "https://resume.redberryinternship.ge/api/degrees";
 
@@ -15,9 +16,6 @@ const Education = () => {
     const data = await response.json();
     setGrades(data);
   };
-
-
-
 
   return (
     <section style={{ marginLeft: "6px" }}>
@@ -38,7 +36,8 @@ const Education = () => {
             <tr>
               <td>
                 <label htmlFor="quality">ხარისხი</label><br />
-                <select name="" id="quality" onChange={(e) => (console.log(e.target.value))}>
+                <select name="" id="quality" onChange={(e) => (console.log(e.target.value))} className="degrees-select">
+                  <option>აირჩიეთ ხარისხი</option>
                   {grades.map((grade) => (
                     <option key={grade.id}>{grade.title}</option>
                   ))}
