@@ -40,10 +40,10 @@ const Personal = () => {
 
   console.log(InputsData);
   return (
-    <section className="personal-container">
-      <form action="" onSubmit={SubmitHandler}>
+    <section>
+      <form action="" onSubmit={SubmitHandler} className="form-module">
         <table cellPadding={30} className="personal-input-parts">
-          <tbody className="name">
+          <tbody className="inputs-container">
             <tr>
               <td>
                 <label htmlFor="name">სახელი</label>

@@ -2,24 +2,10 @@ section {
     display: flex;
 
     .personal-input-parts {
-        margin-left: 10%;
         font-family: 'Helvetica Neue';
         font-style: normal;
         font-weight: 500;
     }
-
-    .name {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 8px 24px;
-        justify-content: center;
-        gap: 8px;
-
-        label {
-            font-weight: 700;
-        }
-
         span {
             width: 100%;
             font-family: 'Helvetica Neue';
@@ -88,4 +74,4 @@ section {
         margin-left: 15%;
         margin-top: -5.5%
     }
-}
+

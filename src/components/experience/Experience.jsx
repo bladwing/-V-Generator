@@ -3,12 +3,13 @@ import "./experience.scss";
 
 const Experience = () => {
   return (
-    <form action="" className="experince-module">
+    <section style={{marginLeft: "30px"}}>
+    <form action="" className="form-module">
       <table cellPadding={30}>
-        <thead>
+        <thead className="inputs-container">
           <tr>
-            <td className="input-container">
-              <label htmlFor="postion">თანამდებობა</label>
+            <td>
+              <label htmlFor="postion">თანამდებობა</label><br />
               <input
                 type="text"
                 id="postion"
@@ -19,8 +20,8 @@ const Experience = () => {
           </tr>
 
           <tr>
-            <td className="input-container">
-              <label htmlFor="costumer">დამსაქმებელი</label>
+            <td>
+              <label htmlFor="costumer">დამსაქმებელი</label><br />
               <input
                 type="text"
                 id="costumer"
@@ -30,8 +31,8 @@ const Experience = () => {
             </td>
           </tr>
 
-          <tr className="first-date">
-            <td>
+          <tr>
+            <td width={18}>
               <label htmlFor="startFrom">დაწყების რიცხვი</label>
               <input type="date" id="startFrom" className="date-inputs" />
            
@@ -44,7 +45,7 @@ const Experience = () => {
 
           <tr>
             <td className="input-container">
-              <label htmlFor="jobDescription">აღწერა</label>
+              <label htmlFor="jobDescription">აღწერა</label><br />
               <textarea type="text" id="jobDescription" placeholder="როლი თანამდებობაზე და ზოგადი აღწერა" className="long-label-inputs" />
             </td>
           </tr>
@@ -72,6 +73,7 @@ const Experience = () => {
         </thead>
       </table>
     </form>
+    </section>
   );
 };
 

@@ -15,9 +15,7 @@ const PersonalInfoPage = () => {
 
       <br />
       <Link to="/experience">Next</Link>
-      <section>
-        <Personal />
-      </section>
+      <Personal />
     </section>
   );
 };

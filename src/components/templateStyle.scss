@@ -1,3 +1,20 @@
+.form-module {
+    margin-left: 5.5%;
+}
+
+.inputs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 24px;
+    justify-content: center;
+    gap: 8px;
+
+    label {
+        font-weight: 700;
+    }
+}
+
 .submit-button,
 .link-button {
     width: 151px;
@@ -11,7 +28,7 @@
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.08em;
-   
+
 }
 
 .link-button {
