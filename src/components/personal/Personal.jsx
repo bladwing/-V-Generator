@@ -29,10 +29,8 @@ const Personal = () => {
 
   const LiveInputHandler = (e) => {
     const Values = e.target.value;
-
     const CheckName = document.getElementById("name").value.trim().length < 2;
     CheckName === true ? setError(true) : setError(false) || setName(Values);
-
     const CheckLastname =
       document.getElementById("lastname").value.trim().length < 2;
     CheckLastname === true
@@ -40,12 +38,10 @@ const Personal = () => {
       : setError(false) || setLastname(Values);
   };
 
-
-
   console.log(InputsData);
   return (
     <section className="personal-container">
-      <form action="">
+      <form action="" onSubmit={SubmitHandler}>
         <table cellPadding={30} className="personal-input-parts">
           <tbody className="name">
             <tr>
@@ -57,8 +53,9 @@ const Personal = () => {
                   type="text"
                   placeholder="ანზორი"
                   id="name"
-                  style={{ border: error === true ? "1px solid red" : "" }}
                   onChange={LiveInputHandler}
+                  pattern='[a-zA-Z0-9_]'
+                  required
                 />
 
                 <br />
@@ -125,7 +122,7 @@ const Personal = () => {
                   type="text"
                   placeholder="+995 551 12 34 56"
                   id="phone"
-                  pattern="/^\+[0-9]{3}[0-9]{9}/g"
+                  // pattern="/^\+[0-9]{3}[0-9]{9}/g"
                   maxLength={13}
                   onChange={LiveInputHandler}
                   required
@@ -137,9 +134,7 @@ const Personal = () => {
             </tr>
           </tbody>
         </table>
-        <button className="submit-button" onClick={SubmitHandler}>
-          ᲨᲔᲛᲓᲔᲒᲘ
-        </button>
+        <button className="submit-button">ᲨᲔᲛᲓᲔᲒᲘ</button>
       </form>
       <PersonalPreview
         name={name}
