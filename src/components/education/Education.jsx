@@ -1,6 +1,24 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+
+const API = "https://resume.redberryinternship.ge/api/degrees";
 
 const Education = () => {
+  const [grades, setGrades] = useState([]);
+
+  useEffect(() => {
+    GetGrade();
+  }, []);
+
+  const GetGrade = async () => {
+    const response = await fetch(API);
+    const data = await response.json();
+    setGrades(data);
+  };
+
+
+
+
   return (
     <section style={{ marginLeft: "6px" }}>
       <form action="" className="form-module">
@@ -19,14 +37,16 @@ const Education = () => {
             </tr>
             <tr>
               <td>
-                <label htmlFor="quality">ხარისხი</label>
-                <select name="" id="quality">
-                  <option value=""></option>
+                <label htmlFor="quality">ხარისხი</label><br />
+                <select name="" id="quality" onChange={(e) => (console.log(e.target.value))}>
+                  {grades.map((grade) => (
+                    <option key={grade.id}>{grade.title}</option>
+                  ))}
                 </select>
               </td>
 
               <td>
-                <label htmlFor="eduEndDate">დამთავრების რიცხვი</label>
+                <label htmlFor="eduEndDate">დამთავრების რიცხვი</label><br />
                 <input type="date" id="eduEndDate" />
               </td>
             </tr>
