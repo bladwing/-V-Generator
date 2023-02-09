@@ -6,7 +6,7 @@ const EducationPage = () => {
     <div className="two-side-container">
       <div className="first-side">
         <div className="page_header">
-          <Link to="/experience">
+          <Link to="/experience" className="back-arrow">
             <img src="./img/icon/back.svg" alt="goBack" />
           </Link>
           <h1>ᲒᲐᲜᲐᲗᲚᲔᲑᲐ</h1>

@@ -6,7 +6,7 @@ const ExperiencePage = () => {
     <div className="two-side-container">
        <div className="first-side">
       <div className="page_header">
-        <Link to="/personal">
+        <Link to="/personal" className="back-arrow">
           <img src="./img/icon/back.svg" alt="goBack" />
         </Link>
         <h1>ᲒᲐᲛᲝᲪᲓᲘᲚᲔᲑᲐ</h1>

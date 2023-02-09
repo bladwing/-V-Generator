@@ -6,7 +6,7 @@ const PersonalInfoPage = () => {
     <div className="two-side-container">
       <div className="first-side">
         <div className="page_header">
-          <Link to="/">
+          <Link to="/" className="back-arrow">
             <img src="./img/icon/back.svg" alt="goBack" />
           </Link>
           <h1>ᲞᲘᲠᲐᲓᲘ ᲘᲜᲤᲝ</h1>
