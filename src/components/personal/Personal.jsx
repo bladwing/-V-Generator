@@ -4,8 +4,6 @@ import { useForm } from "react-hook-form";
 import "./personal.scss";
 
 const Personal = () => {
-  const { register, handleSubmit, errors } = useForm();
-
   // const [name, setName] = useState("");
   // const [lastname, setLastname] = useState("");
   // const [profilePhoto, setProfilePhoto] = useState("");
@@ -15,9 +13,23 @@ const Personal = () => {
 
   // const [error, setError] = useState(false);
 
+  const {
+    register,
+    handleSubmit,
+    getValues,
+    formState: { errors },
+  } = useForm();
+
   const onSubmit = (data) => {
     console.log(data);
     localStorage.setItem("personalInformation", JSON.stringify([data]));
+  };
+
+  const errorBorder = {
+    border: "1px solid red",
+  };
+  const errorColor = {
+    color: "red",
   };
 
   return (
@@ -25,24 +37,45 @@ const Personal = () => {
       <form action="" onSubmit={handleSubmit(onSubmit)} className="form-inputs">
         <table cellPadding={28}>
           <tbody>
+
+
+
             <tr className="short-input-date-container">
               <td>
-                <label htmlFor="name">სახელი</label>
+                <label htmlFor="name" style={errors.name && errorColor}>
+                  სახელი
+                </label>
                 <br />
                 <input
+                  className={
+                    errors.name === undefined &&
+                    getValues("name") !== undefined &&
+                    getValues("name") !== ""
+                      ? "name-input valid short-input-label"
+                      : "name-input short-input-label"
+                  }
                   type="text"
-                  className="short-input-label"
                   placeholder="ანზორი"
                   id="name"
                   {...register("name", {
-                    required: true,
-                    minLength: { value: 2 },
+                    required: { value: true, message: "error" },
+                    minLength: { value: 2, message: "error" },
                     pattern: { value: /^[ა-ჰ]+$/ },
                   })}
+                  style={errors.name && errorBorder}
                 />
-
-                <div className="hint">მინიმუმ 2 ასო, ქართული ასოები</div>
+                {errors.name && errors.name.type === "pattern" && (
+                   <div className="hint" style={errors.name && errorColor}>
+                   მინიმუმ 2 ასო, ქართული ასოები
+                 </div> 
+                ) }
+                    <div className="hint" style={errors.name && errorColor}>
+                   მინიმუმ 2 ასო, ქართული ასოები
+                 </div> 
               </td>
+
+
+
               <td>
                 <label htmlFor="lastname">გვარი</label>
                 <br />
