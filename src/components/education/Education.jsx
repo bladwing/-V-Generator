@@ -18,10 +18,10 @@ const Education = () => {
   };
 
   return (
-    <section className="section-components-container">
-      <form action="" className="form-module">
+    <section>
+      <form action="" className="form-inputs">
         <table cellPadding={30}>
-          <thead className="inputs-container">
+          <thead>
             <tr>
               <td>
                 <label htmlFor="academy">სასწავლებელი</label> <br />
@@ -31,9 +31,11 @@ const Education = () => {
                   placeholder="სასწავლებელი"
                   className="long-label-inputs"
                 />
+                <div className="hint">მინიმუმ 2 სიმბოლო</div>
               </td>
             </tr>
-            <tr>
+
+            <tr className="short-input-date-container">
               <td>
                 <label htmlFor="quality">ხარისხი</label>
                 <br />
@@ -53,9 +55,10 @@ const Education = () => {
               <td>
                 <label htmlFor="eduEndDate">დამთავრების რიცხვი</label>
                 <br />
-                <input type="date" id="eduEndDate" />
+                <input type="date" id="eduEndDate" className="date-inputs" />
               </td>
             </tr>
+
             <tr>
               <td>
                 <label htmlFor="edu-description">აღწერა</label>

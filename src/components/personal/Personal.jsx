@@ -41,11 +41,11 @@ const Personal = () => {
 
   console.log(InputsData);
   return (
-    <section className="conatiner-for-two-block">
+    <section>
       <form action="" onSubmit={SubmitHandler} className="form-inputs">
         <table cellPadding={28}>
           <tbody>
-            <tr className="name-lastname-container">
+            <tr className="short-input-date-container">
               <td>
                 <label htmlFor="name">სახელი</label>
                 <br />

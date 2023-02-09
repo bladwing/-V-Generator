@@ -3,10 +3,10 @@ import "./experience.scss";
 
 const Experience = () => {
   return (
-    <section className="section-components-container">
-      <form action="">
+    <section>
+      <form action="" className="form-inputs">
         <table cellPadding={30}>
-          <thead className="inputs-container">
+          <thead>
             <tr>
               <td>
                 <label htmlFor="postion">თანამდებობა</label>
@@ -17,6 +17,7 @@ const Experience = () => {
                   placeholder="თანამდებობა"
                   className="long-label-inputs"
                 />
+                <div className="hint">მინიმუმ 2 სიმბოლო</div>
               </td>
             </tr>
 
@@ -30,29 +31,29 @@ const Experience = () => {
                   placeholder="დამსაქმებელი"
                   className="long-label-inputs"
                 />
+                <div className="hint">მინიმუმ 2 სიმბოლო</div>
               </td>
             </tr>
 
-            <tr>
-              <td width={18}>
-                <label htmlFor="startFrom">დაწყების რიცხვი</label>
+            <tr className="short-input-date-container">
+              <td>
+                <label htmlFor="startFrom">დაწყების რიცხვი</label><br />
                 <input type="date" id="startFrom" className="date-inputs" />
               </td>
               <td>
-                <label htmlFor="endFrom">დამთავრების რიცხვი</label>
+                <label htmlFor="endFrom">დამთავრების რიცხვი</label><br />
                 <input type="date" id="endFrom" className="date-inputs" />
               </td>
             </tr>
 
             <tr>
-              <td className="input-container">
+              <td>
                 <label htmlFor="jobDescription">აღწერა</label>
                 <br />
                 <textarea
                   type="text"
                   id="jobDescription"
                   placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"
-                  className="long-label-inputs"
                 />
               </td>
             </tr>
@@ -76,9 +77,6 @@ const Experience = () => {
             ᲣᲙᲐᲜ
           </Link>
           <button className="submit-button">ᲨᲔᲛᲓᲔᲒᲘ</button>
-          <Link to="/education" className="link-button">
-          ᲨᲔᲛᲓᲔᲒᲘ
-          </Link>
         </div>
         
       </form>

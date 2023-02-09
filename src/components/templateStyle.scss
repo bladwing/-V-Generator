@@ -1,19 +1,27 @@
-.inputs-container {
+.form-inputs {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    border: 1px solid green;
-    margin: 0 auto;
-    width: 91%;
-    gap: 8px;
-    
-    label {
-        font-weight: 700;
+    flex-wrap: wrap;
+    width: 77%;
+    margin-left: 10.5%;
+
+    .short-input-date-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .hint {
+        width: 100%;
         font-family: 'Helvetica Neue';
         font-style: normal;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 21px;
+        color: #2E2E2E;
     }
 }
+
+
 .submit-button,
 .link-button {
     background: #6B40E3;
@@ -27,17 +35,26 @@
     letter-spacing: 0.08em;
 
 }
+
 .submit-button {
     border: none;
     width: 170px;
     height: 53px;
 }
+
 .link-button {
     text-decoration: none;
     margin-top: 189px;
-    padding: 18px 60px;    
+    padding: 18px 60px;
 }
 
+.date-inputs {
+    height: 48px;
+    width: 367px;
+    background: #FFFFFF;
+    border: 1px solid #BCBCBC;
+    border-radius: 4px;
+}
 
 .additional-button {
     background-color: #62A1EB;
@@ -57,6 +74,7 @@
     border: 1px solid #BCBCBC;
     border-radius: 4px;
 }
+
 .short-input-label {
     box-sizing: border-box;
     width: 371px;
@@ -64,20 +82,25 @@
     background: #FFFFFF;
     border: 1px solid #BCBCBC;
     border-radius: 4px;
-}      ::placeholder {
+}
+
+::placeholder {
     font-size: 16px;
     line-height: 21px;
     padding: 10px;
-}       :focus::placeholder {
+}
+
+:focus::placeholder {
     opacity: 0;
 }
 
 .button-container {
     display: flex;
     justify-content: space-between;
+    margin: 0 auto;
     width: 900px;
+
     a {
         margin: 0px;
     }
 }
-
