@@ -1,48 +1,28 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import PersonalPreview from "../preview/PersonalPreview";
+import { useForm } from "react-hook-form";
 
 import "./personal.scss";
 
 const Personal = () => {
-  const [name, setName] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [profilePhoto, setProfilePhoto] = useState("");
-  const [about, setAbout] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const { register, handleSubmit, errors } = useForm();
 
-  const [error, setError] = useState(false);
+  // const [name, setName] = useState("");
+  // const [lastname, setLastname] = useState("");
+  // const [profilePhoto, setProfilePhoto] = useState("");
+  // const [about, setAbout] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [phone, setPhone] = useState("");
 
-  const InputsData = {
-    name,
-    lastname,
-    profilePhoto,
-    about,
-    email,
-    phone,
+  // const [error, setError] = useState(false);
+
+  const onSubmit = (data) => {
+    console.log(data);
+    localStorage.setItem("personalInformation", JSON.stringify([data]));
   };
 
-  const SubmitHandler = (e) => {
-    e.preventDefault();
-    localStorage.setItem("personalInformation", JSON.stringify([InputsData]));
-  };
-
-  const LiveInputHandler = (e) => {
-    const Values = e.target.value;
-    const CheckName = document.getElementById("name").value.trim().length < 2;
-    CheckName === true ? setError(true) : setError(false) || setName(Values);
-    const CheckLastname =
-      document.getElementById("lastname").value.trim().length < 2;
-    CheckLastname === true
-      ? setError(true)
-      : setError(false) || setLastname(Values);
-  };
-
-  console.log(InputsData);
   return (
     <section>
-      <form action="" onSubmit={SubmitHandler} className="form-inputs">
+      <form action="" onSubmit={handleSubmit(onSubmit)} className="form-inputs">
         <table cellPadding={28}>
           <tbody>
             <tr className="short-input-date-container">
@@ -54,8 +34,11 @@ const Personal = () => {
                   className="short-input-label"
                   placeholder="ანზორი"
                   id="name"
-                  onChange={LiveInputHandler}
-                  required
+                  {...register("name", {
+                    required: true,
+                    minLength: { value: 2 },
+                    pattern: { value: /^[ა-ჰ]+$/ },
+                  })}
                 />
 
                 <div className="hint">მინიმუმ 2 ასო, ქართული ასოები</div>
@@ -68,8 +51,11 @@ const Personal = () => {
                   className="short-input-label"
                   placeholder="მუმლაძე"
                   id="lastname"
-                  onChange={LiveInputHandler}
-                  required
+                  {...register("lastname", {
+                    required: true,
+                    minLength: { value: 2 },
+                    pattern: { value: /^[ა-ჰ]+$/ },
+                  })}
                 />
 
                 <div className="hint">მინიმუმ 2 ასო, ქართული ასოები</div>
@@ -79,12 +65,14 @@ const Personal = () => {
             <tr>
               <td className="upload-file">
                 <label htmlFor="upload-photo">პირადი ფოტოს ატვირთვა</label>
-                <input id="upload-photo" type="file" accept="image/*" hidden />
-                <button
-                  className="upload-button"
-                  type="button"
-                  onClick={(e) => setProfilePhoto(e.target.value)}
-                >
+                <input
+                  id="upload-photo"
+                  type="file"
+                  accept="image/*"
+                  hidden
+                  {...register("upload-photo", { required: true })}
+                />
+                <button className="upload-button" type="button">
                   ატვირთვა
                 </button>
               </td>
@@ -98,7 +86,7 @@ const Personal = () => {
                   rows="10"
                   id="about"
                   placeholder="ზოგადი ინფო შენ შესახებ"
-                  onChange={(e) => setAbout(e.target.value)}
+                  {...register("about")}
                 ></textarea>
               </td>
             </tr>
@@ -111,27 +99,33 @@ const Personal = () => {
                   className="long-label-inputs"
                   id="email"
                   placeholder="anzorr666@redberry.ge"
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
+                  {...register("email", {
+                    pattern: {
+                      value: /^[a-zA-Z0-9.]+@redberry.ge$/,
+                    },
+                    required: { value: true },
+                  })}
                 />
-          
+
                 <div className="hint">უნდა მთავრდებოდეს @redberry.ge-ით</div>
               </td>
             </tr>
             <tr className="phone">
               <td>
                 <label htmlFor="phone">მობილურის ნომერი</label>
-           
+
                 <input
                   type="text"
                   className="long-label-inputs"
                   placeholder="+995 551 12 34 56"
                   id="phone"
-                  maxLength={13}
-                  onChange={LiveInputHandler}
-                  required
+                  {...register("phone", {
+                    required: { value: true },
+                    pattern: {
+                      value: /^\+995\s\d{3}\s\d{2}\s\d{2}\s\d{2}$/,
+                    },
+                  })}
                 />
-          
                 <div className="hint">
                   უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს
                 </div>
@@ -141,18 +135,8 @@ const Personal = () => {
         </table>
         <div className="button-container-personal">
           <button className="submit-button">ᲨᲔᲛᲓᲔᲒᲘ</button>
-          {/* <Link to="/experience" className="link-button">ᲨᲔᲛᲓᲔᲒᲘ</Link> */}
         </div>
       </form>
-
-      {/* <PersonalPreview
-        name={name}
-        lastname={lastname}
-        profilePhoto={profilePhoto}
-        about={about}
-        email={email}
-        phone={phone}
-      /> */}
     </section>
   );
 };
