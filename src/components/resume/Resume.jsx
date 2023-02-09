@@ -1,8 +1,35 @@
-import { Fragment } from "react";
+import "./resume.scss"
 
 const Resume = () => {
     return ( 
-        <Fragment>This is a Finish</Fragment>
+        <table className="preview">
+      <tbody>
+        <tr>
+          <td>
+            <h2>
+        
+            </h2>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h4></h4>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h4></h4>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>
+             
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
      );
 }
  

@@ -3,8 +3,8 @@ import "./experience.scss";
 
 const Experience = () => {
   return (
-    <section style={{ marginLeft: "30px" }}>
-      <form action="" className="form-module">
+    <section className="section-components-container">
+      <form action="">
         <table cellPadding={30}>
           <thead className="inputs-container">
             <tr>
@@ -28,7 +28,7 @@ const Experience = () => {
                   type="text"
                   id="costumer"
                   placeholder="დამსაქმებელი"
-                  className="long-label-inputs "
+                  className="long-label-inputs"
                 />
               </td>
             </tr>
@@ -76,7 +76,11 @@ const Experience = () => {
             ᲣᲙᲐᲜ
           </Link>
           <button className="submit-button">ᲨᲔᲛᲓᲔᲒᲘ</button>
+          <Link to="/education" className="link-button">
+          ᲨᲔᲛᲓᲔᲒᲘ
+          </Link>
         </div>
+        
       </form>
     </section>
   );

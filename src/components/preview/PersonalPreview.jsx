@@ -1,6 +1,9 @@
+import "./preview.scss"
+
+
 const PersonalPreview = (props) => {
   return (
-    <table className="live-preview">
+    <table className="preview-container">
       <tbody>
         <tr>
           <td>

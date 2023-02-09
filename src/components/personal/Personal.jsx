@@ -1,5 +1,6 @@
 import { useState } from "react";
-import PersonalPreview from "./PersonalPreview";
+import { Link } from "react-router-dom";
+import PersonalPreview from "../preview/PersonalPreview";
 
 import "./personal.scss";
 
@@ -40,42 +41,41 @@ const Personal = () => {
 
   console.log(InputsData);
   return (
-    <section>
-      <form action="" onSubmit={SubmitHandler} className="form-module">
-        <table cellPadding={30} className="personal-input-parts">
-          <tbody className="inputs-container">
-            <tr>
+    <section className="conatiner-for-two-block">
+      <form action="" onSubmit={SubmitHandler} className="form-inputs">
+        <table cellPadding={28}>
+          <tbody>
+            <tr className="name-lastname-container">
               <td>
                 <label htmlFor="name">სახელი</label>
                 <br />
-
                 <input
                   type="text"
+                  className="short-input-label"
                   placeholder="ანზორი"
                   id="name"
                   onChange={LiveInputHandler}
-                  pattern='[a-zA-Z0-9_]'
                   required
                 />
 
-                <br />
-                <span>მინიმუმ 2 ასო, ქართული ასოები</span>
+                <div className="hint">მინიმუმ 2 ასო, ქართული ასოები</div>
               </td>
-              <td className="lastname">
+              <td>
                 <label htmlFor="lastname">გვარი</label>
                 <br />
                 <input
                   type="text"
+                  className="short-input-label"
                   placeholder="მუმლაძე"
                   id="lastname"
-                  style={{ border: error === true ? "1px solid red" : "" }}
                   onChange={LiveInputHandler}
                   required
                 />
-                <br />
-                <span>მინიმუმ 2 ასო, ქართული ასოები</span>
+
+                <div className="hint">მინიმუმ 2 ასო, ქართული ასოები</div>
               </td>
             </tr>
+
             <tr>
               <td className="upload-file">
                 <label htmlFor="upload-photo">პირადი ფოტოს ატვირთვა</label>
@@ -105,48 +105,54 @@ const Personal = () => {
             <tr className="email">
               <td>
                 <label htmlFor="email">ელ.ფოსტა</label>
+
                 <input
                   type="email"
+                  className="long-label-inputs"
                   id="email"
                   placeholder="anzorr666@redberry.ge"
-                  onChange={LiveInputHandler}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
-                <span>უნდა მთავრდებოდეს @redberry.ge-ით</span>
+          
+                <div className="hint">უნდა მთავრდებოდეს @redberry.ge-ით</div>
               </td>
             </tr>
             <tr className="phone">
               <td>
                 <label htmlFor="phone">მობილურის ნომერი</label>
+           
                 <input
                   type="text"
+                  className="long-label-inputs"
                   placeholder="+995 551 12 34 56"
                   id="phone"
-                  // pattern="/^\+[0-9]{3}[0-9]{9}/g"
                   maxLength={13}
                   onChange={LiveInputHandler}
                   required
                 />
-                <span>
+          
+                <div className="hint">
                   უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს
-                </span>
+                </div>
               </td>
             </tr>
           </tbody>
         </table>
-
-
-        
-        <button className="submit-button">ᲨᲔᲛᲓᲔᲒᲘ</button>
+        <div className="button-container-personal">
+          <button className="submit-button">ᲨᲔᲛᲓᲔᲒᲘ</button>
+          {/* <Link to="/experience" className="link-button">ᲨᲔᲛᲓᲔᲒᲘ</Link> */}
+        </div>
       </form>
-      <PersonalPreview
+
+      {/* <PersonalPreview
         name={name}
         lastname={lastname}
         profilePhoto={profilePhoto}
         about={about}
         email={email}
         phone={phone}
-      />
+      /> */}
     </section>
   );
 };

@@ -18,7 +18,7 @@ const Education = () => {
   };
 
   return (
-    <section style={{ marginLeft: "6px" }}>
+    <section className="section-components-container">
       <form action="" className="form-module">
         <table cellPadding={30}>
           <thead className="inputs-container">

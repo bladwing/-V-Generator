@@ -14,7 +14,6 @@ const ExperiencePage = () => {
       </div>
 
       <br />
-      <Link to="/education">Next</Link>
       <Experience/>
     </section>
   );

@@ -4,10 +4,9 @@ import Resume from "../components/resume/Resume";
 const ResumePage = () => {
   return (
     <section>
-      <h1 className="page_header">ჯერ არაფერი</h1>
-
-      <Link to="/">Finish</Link>
-      <hr />
+           <Link to="/">
+          <img src="./img/icon/back.svg" alt="goBack" />
+        </Link>
       <Resume />
     </section>
   );

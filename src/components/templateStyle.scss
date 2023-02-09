@@ -1,14 +1,13 @@
-.form-module {
-    margin-left: 5.5%;
-}
-
 .inputs-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 8px 24px;
     justify-content: center;
+    border: 1px solid green;
+    margin: 0 auto;
+    width: 91%;
     gap: 8px;
+    
     label {
         font-weight: 700;
         font-family: 'Helvetica Neue';
@@ -58,7 +57,20 @@
     border: 1px solid #BCBCBC;
     border-radius: 4px;
 }
-
+.short-input-label {
+    box-sizing: border-box;
+    width: 371px;
+    height: 48px;
+    background: #FFFFFF;
+    border: 1px solid #BCBCBC;
+    border-radius: 4px;
+}      ::placeholder {
+    font-size: 16px;
+    line-height: 21px;
+    padding: 10px;
+}       :focus::placeholder {
+    opacity: 0;
+}
 
 .button-container {
     display: flex;
@@ -68,3 +80,4 @@
         margin: 0px;
     }
 }
+

@@ -13,7 +13,6 @@ const EducationPage = () => {
         <hr className="header_line" />
       </div>
       <br />
-      <Link to="/resume">Next</Link>
       <Education/>
     </section>
   );

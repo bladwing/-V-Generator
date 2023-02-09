@@ -1,77 +1,66 @@
-section {
+.conatiner-for-two-block {
     display: flex;
+    justify-content: space-between;
+  
+}
+.form-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    width: 77%;
+    margin-left: 10.5%;
 
-    .personal-input-parts {
+    .name-lastname-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .hint {
+        width: 100%;
         font-family: 'Helvetica Neue';
         font-style: normal;
-        font-weight: 500;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 21px;
+        color: #2E2E2E;
     }
-        span {
-            width: 100%;
-            font-family: 'Helvetica Neue';
-            font-style: normal;
-            font-weight: 300;
-            font-size: 14px;
-            line-height: 21px;
-            color: #2E2E2E;
-        }
 
-        input {
-            box-sizing: border-box;
-            width: 371px;
-            height: 48px;
-            background: #FFFFFF;
-            border: 1px solid #BCBCBC;
+    .upload-file {
+        border: none;
+
+        .upload-button {
+            padding: 6px 14px;
             border-radius: 4px;
-        }
-
-        ::placeholder {
-            font-size: 16px;
-            line-height: 21px;
-            padding: 10px;
-        }
-
-        :focus::placeholder {
-            opacity: 0;
-        }
-
-        .upload-file {
+            margin-left: 20px;
+            font-size: 13px;
+            background-color: #0e80bf;
+            color: white;
+            cursor: pointer;
             border: none;
-            background-color: #f9f9f9;
-
-            .upload-button {
-                padding: 6px 14px;
-                border-radius: 4px;
-                margin-left: 20px;
-                font-size: 13px;
-                background-color: #0e80bf;
-                color: white;
-                cursor: pointer;
-                border: none;
-            }
-
         }
 
-        textarea {
-            box-sizing: border-box;
-            min-width: 798px;
-            max-width: 798px;
-            min-height: 103px;
-            max-height: 103px;
-        }
+    }
 
-        .email,
-        .phone {
-            input {
-                width: 798px;
-            }
+    textarea {
+        box-sizing: border-box;
+        min-width: 798px;
+        max-width: 798px;
+        min-height: 103px;
+        max-height: 103px;
+    }
+
+    .email,
+    .phone {
+        input {
+            width: 798px;
         }
     }
-    .live-preview {
+    .button-container-personal {
         display: flex;
-        text-align: center;
-        width: 822px;
-        margin-left: 15%;
-        margin-top: -5.5%
+        justify-content: right;
+        width: 900px;
+        a {
+            margin: 0px;
+        }
     }
-
+}
