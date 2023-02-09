@@ -3,22 +3,20 @@ import Personal from "../components/personal/Personal";
 
 const PersonalInfoPage = () => {
   return (
-    <section>
-      <div className="two-side-container">
-        <div className="first-side">
-          <div className="page_header">
-            <Link to="/">
-              <img src="./img/icon/back.svg" alt="goBack" />
-            </Link>
-            <h1>ᲞᲘᲠᲐᲓᲘ ᲘᲜᲤᲝ</h1>
-            <div>1/3</div>
-            <hr className="header_line" />
-          </div>
-          <Personal />
+    <div className="two-side-container">
+      <div className="first-side">
+        <div className="page_header">
+          <Link to="/">
+            <img src="./img/icon/back.svg" alt="goBack" />
+          </Link>
+          <h1>ᲞᲘᲠᲐᲓᲘ ᲘᲜᲤᲝ</h1>
+          <div>1/3</div>
+          <hr className="header_line" />
         </div>
-        <div className="second-side">this is second side</div>
+        <Personal />
       </div>
-    </section>
+      <div className="second-side">this is second side</div>
+    </div>
   );
 };
 
