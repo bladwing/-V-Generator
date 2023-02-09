@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
 import "./education.scss";
 
 const API = "https://resume.redberryinternship.ge/api/degrees";
 
 const Education = () => {
   const [grades, setGrades] = useState([]);
+  const { register, handleSubmit, errors } = useForm();
 
   useEffect(() => {
     GetGrade();
@@ -17,9 +19,15 @@ const Education = () => {
     setGrades(data);
   };
 
+  const onSubmit = (data) => {
+    console.log(data);
+    localStorage.setItem("educationinformation", JSON.stringify([data]));
+  };
+
+
   return (
     <section>
-      <form action="" className="form-inputs">
+      <form action="" onSubmit={handleSubmit(onSubmit)} className="form-inputs">
         <table cellPadding={30}>
           <thead>
             <tr>
@@ -30,6 +38,10 @@ const Education = () => {
                   id="academy"
                   placeholder="სასწავლებელი"
                   className="long-label-inputs"
+                  {...register("academy", {
+                    required: true,
+                    minLength: { value: 2},
+                  })}
                 />
                 <div className="hint">მინიმუმ 2 სიმბოლო</div>
               </td>
@@ -44,6 +56,9 @@ const Education = () => {
                   id="quality"
                   onChange={(e) => console.log(e.target.value)}
                   className="degrees-select"
+                  {...register("quality", {
+                    required: true
+                  })}
                 >
                   <option>აირჩიეთ ხარისხი</option>
                   {grades.map((grade) => (
@@ -55,7 +70,9 @@ const Education = () => {
               <td>
                 <label htmlFor="eduEndDate">დამთავრების რიცხვი</label>
                 <br />
-                <input type="date" id="eduEndDate" className="date-inputs" />
+                <input type="date" id="eduEndDate" className="date-inputs"     {...register("eduEndDate", {
+                    required: true
+                  })}/>
               </td>
             </tr>
 
@@ -66,6 +83,9 @@ const Education = () => {
                   type="text"
                   id="edu-description"
                   placeholder="აღწერა"
+                  {...register("edu-description", {
+                    required: true
+                  })}
                 />
               </td>
             </tr>

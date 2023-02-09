@@ -1,10 +1,18 @@
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import "./experience.scss";
 
 const Experience = () => {
+  const { register, handleSubmit, errors } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+    localStorage.setItem("experienceinformation", JSON.stringify([data]));
+  };
+
   return (
     <section>
-      <form action="" className="form-inputs">
+      <form action="" onSubmit={handleSubmit(onSubmit)} className="form-inputs">
         <table cellPadding={30}>
           <thead>
             <tr>
@@ -16,6 +24,10 @@ const Experience = () => {
                   id="postion"
                   placeholder="თანამდებობა"
                   className="long-label-inputs"
+                  {...register("postion", {
+                    required: true,
+                    minLength: { value: 2 },
+                  })}
                 />
                 <div className="hint">მინიმუმ 2 სიმბოლო</div>
               </td>
@@ -30,6 +42,10 @@ const Experience = () => {
                   id="costumer"
                   placeholder="დამსაქმებელი"
                   className="long-label-inputs"
+                  {...register("costumer", {
+                    required: true,
+                    minLength: { value: 2 },
+                  })}
                 />
                 <div className="hint">მინიმუმ 2 სიმბოლო</div>
               </td>
@@ -37,12 +53,28 @@ const Experience = () => {
 
             <tr className="short-input-date-container">
               <td>
-                <label htmlFor="startFrom">დაწყების რიცხვი</label><br />
-                <input type="date" id="startFrom" className="date-inputs" />
+                <label htmlFor="startFrom">დაწყების რიცხვი</label>
+                <br />
+                <input
+                  type="date"
+                  id="startFrom"
+                  className="date-inputs"
+                  {...register("startFrom", {
+                    required: true,
+                  })}
+                />
               </td>
               <td>
-                <label htmlFor="endFrom">დამთავრების რიცხვი</label><br />
-                <input type="date" id="endFrom" className="date-inputs" />
+                <label htmlFor="endFrom">დამთავრების რიცხვი</label>
+                <br />
+                <input
+                  type="date"
+                  id="endFrom"
+                  className="date-inputs"
+                  {...register("endFrom", {
+                    required: true,
+                  })}
+                />
               </td>
             </tr>
 
@@ -54,6 +86,9 @@ const Experience = () => {
                   type="text"
                   id="jobDescription"
                   placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"
+                  {...register("jobDescription", {
+                    required: true,
+                  })}
                 />
               </td>
             </tr>
@@ -78,7 +113,6 @@ const Experience = () => {
           </Link>
           <button className="submit-button">ᲨᲔᲛᲓᲔᲒᲘ</button>
         </div>
-        
       </form>
     </section>
   );
