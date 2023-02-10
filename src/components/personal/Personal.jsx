@@ -1,18 +1,8 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import "./personal.scss";
 
 const Personal = () => {
-  // const [name, setName] = useState("");
-  // const [lastname, setLastname] = useState("");
-  // const [profilePhoto, setProfilePhoto] = useState("");
-  // const [about, setAbout] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [phone, setPhone] = useState("");
-
-  // const [error, setError] = useState(false);
-
   const {
     register,
     handleSubmit,
@@ -25,9 +15,11 @@ const Personal = () => {
     localStorage.setItem("personalInformation", JSON.stringify([data]));
   };
 
+
   const errorBorder = {
     border: "1px solid red",
   };
+
   const errorColor = {
     color: "red",
   };
@@ -37,48 +29,103 @@ const Personal = () => {
       <form action="" onSubmit={handleSubmit(onSubmit)} className="form-inputs">
         <table cellPadding={28}>
           <tbody>
-
-
-
             <tr className="short-input-date-container">
               <td>
-                <label htmlFor="name" style={errors.name && errorColor}>
-                  სახელი
-                </label>
-                <br />
-                <input
-                  className={
-                    errors.name === undefined &&
+                <div className="error-handler">
+                  <label htmlFor="name" style={errors.name && errorColor}>
+                    სახელი
+                  </label>
+                  <br />
+
+                  {errors.name && errors.name.type === "required" && (
+                    <p className="errorMsg" style={errors.name && errorColor}>
+                      სავალდებულო ველი
+                      <img src="img/error.png" alt="error" />
+                    </p>
+                  )}
+                  {errors.name && errors.name.type === "pattern" && (
+                    <p className="errorMsg" style={errors.name && errorColor}>
+                      მხოლოდ ქართული ასობები.{" "}
+                      <img src="img/error.png" alt="error" />
+                    </p>
+                  )}
+                  {errors.name && errors.name.type === "minLength" && (
+                    <p className="errorMsg" style={errors.name && errorColor}>
+                      მინიმუმ ორი სიმბოლო.{" "}
+                      <img src="img/error.png" alt="error" />
+                    </p>
+                  )}
+
+                  {errors.name === undefined &&
                     getValues("name") !== undefined &&
-                    getValues("name") !== ""
-                      ? "name-input valid short-input-label"
-                      : "name-input short-input-label"
-                  }
+                    getValues("name") !== "" && (
+                      <img
+                        src="img/valid.png"
+                        alt="valid"
+                        className="valid-img"
+                      />
+                    )}
+                </div>
+
+                <input
                   type="text"
                   placeholder="ანზორი"
                   id="name"
                   {...register("name", {
-                    required: { value: true, message: "error" },
-                    minLength: { value: 2, message: "error" },
+                    required: { value: true },
+                    minLength: { value: 2 },
                     pattern: { value: /^[ა-ჰ]+$/ },
                   })}
+                  className="short-input-label"
                   style={errors.name && errorBorder}
                 />
-                {errors.name && errors.name.type === "pattern" && (
-                   <div className="hint" style={errors.name && errorColor}>
-                   მინიმუმ 2 ასო, ქართული ასოები
-                 </div> 
-                ) }
-                    <div className="hint" style={errors.name && errorColor}>
-                   მინიმუმ 2 ასო, ქართული ასოები
-                 </div> 
+                <div className="hint">მინიმუმ 2 ასო, ქართული ასოები</div>
               </td>
 
-
-
               <td>
-                <label htmlFor="lastname">გვარი</label>
-                <br />
+                <div className="error-handler">
+                  <label htmlFor="lastname">გვარი</label>
+                  <br />
+
+                  {errors.lastname && errors.lastname.type === "required" && (
+                    <p
+                      className="errorMsg"
+                      style={errors.lastname && errorColor}
+                    >
+                      სავალდებულო ველი
+                      <img src="img/error.png" alt="error" />
+                    </p>
+                  )}
+                  {errors.lastname && errors.lastname.type === "pattern" && (
+                    <p
+                      className="errorMsg"
+                      style={errors.lastname && errorColor}
+                    >
+                      მხოლოდ ქართული ასობები.{" "}
+                      <img src="img/error.png" alt="error" />
+                    </p>
+                  )}
+                  {errors.lastname && errors.lastname.type === "minLength" && (
+                    <p
+                      className="errorMsg"
+                      style={errors.lastname && errorColor}
+                    >
+                      მინიმუმ ორი სიმბოლო.{" "}
+                      <img src="img/error.png" alt="error" />
+                    </p>
+                  )}
+
+                  {errors.lastname === undefined &&
+                    getValues("lastname") !== undefined &&
+                    getValues("lastname") !== "" && (
+                      <img
+                        src="img/valid.png"
+                        alt="valid"
+                        className="valid-img"
+                      />
+                    )}
+                </div>
+
                 <input
                   type="text"
                   className="short-input-label"
@@ -125,7 +172,31 @@ const Personal = () => {
             </tr>
             <tr className="email">
               <td>
-                <label htmlFor="email">ელ.ფოსტა</label>
+                <div className="long-input-error-handler">
+                  <label htmlFor="email">ელ.ფოსტა</label>
+                  {errors.email && errors.email.type === "required" && (
+                    <p className="errorMsg" style={errors.email && errorColor}>
+                      სავალდებულო ველი
+                      <img src="img/error.png" alt="error" />
+                    </p>
+                  )}
+                  {errors.email && errors.email.type === "pattern" && (
+                    <p className="errorMsg" style={errors.email && errorColor}>
+                      უნდა მთავრდებოდეს @redberry.ge-ით{" "}
+                      <img src="img/error.png" alt="error" />
+                    </p>
+                  )}
+
+                  {errors.email === undefined &&
+                    getValues("email") !== undefined &&
+                    getValues("email") !== "" && (
+                      <img
+                        src="img/valid.png"
+                        alt="valid"
+                        className="long-input-valid-img"
+                      />
+                    )}
+                </div>
 
                 <input
                   type="email"
@@ -145,8 +216,31 @@ const Personal = () => {
             </tr>
             <tr className="phone">
               <td>
-                <label htmlFor="phone">მობილურის ნომერი</label>
+                <div className="long-input-error-handler">
+                  <label htmlFor="phone">მობილურის ნომერი</label>
 
+                  {errors.phone && errors.phone.type === "required" && (
+                    <p className="errorMsg" style={errors.phone && errorColor}>
+                      სავალდებულო ველი
+                      <img src="img/error.png" alt="error" />
+                    </p>
+                  )}
+                  {errors.phone && errors.phone.type === "pattern" && (
+                    <p className="errorMsg" style={errors.phone && errorColor}>
+                      არასწორი ფორმატი <img src="img/error.png" alt="error" />
+                    </p>
+                  )}
+
+                  {errors.phone === undefined &&
+                    getValues("phone") !== undefined &&
+                    getValues("phone") !== "" && (
+                      <img
+                        src="img/valid.png"
+                        alt="valid"
+                        className="long-input-valid-img"
+                      />
+                    )}
+                </div>
                 <input
                   type="text"
                   className="long-label-inputs"

@@ -105,3 +105,46 @@
         margin: 0px;
     }
 }
+
+
+
+.error-handler {
+
+    display: flex;
+
+    .errorMsg {
+        margin: 0;
+        width: 14%;
+        position: absolute;
+        margin: 33px 0 0 5%;
+        img {
+            margin: 2px 0 0 10px;
+            float: right;
+        }
+    }
+    .valid-img {
+        position: absolute;
+        margin: 35px 0 0 18%;
+
+    }
+}
+
+
+.long-input-error-handler {
+    display: flex;
+    .errorMsg {
+        margin: 0;
+        width: 18%;
+        position: absolute;
+        margin: 33px 0 0 23%;
+        img {
+            margin: 2px 0 0 15px;
+            float: right;
+        }
+    }
+    .long-input-valid-img {
+        position: absolute;
+            margin: 35px 0 0 40%;
+    
+    }
+}
