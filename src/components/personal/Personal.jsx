@@ -3,6 +3,8 @@ import useLocalStorage from "../../utils/localStorage";
 import { useForm } from "react-hook-form";
 import PersonalPreview from "../preview/PersonalPreview";
 
+import {errorBorder, errorColor} from "../../utils/helpFunctions.js"
+
 import "./personal.scss";
 
 const Personal = () => {
@@ -33,16 +35,6 @@ const Personal = () => {
       "temporaryInfromation",
       JSON.stringify(["name", name, "lastname", lastname, "about", about, "email", email, "phone", phone])
     );
-  };
-
-
-
-  const errorBorder = {
-    border: "1px solid red",
-  };
-
-  const errorColor = {
-    color: "red",
   };
 
   return (
@@ -95,7 +87,7 @@ const Personal = () => {
                   {...register("name", {
                     required: { value: true },
                     minLength: { value: 2 },
-                    pattern: { value: /^[ა-ჰ]+$/ },
+                    pattern: { value: /^[ა-ჰ]+$/ }
                   })}
                   className="short-input-label"
                   style={errors.name && errorBorder}
