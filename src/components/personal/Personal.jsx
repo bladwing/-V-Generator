@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import useLocalStorage from "../../utils/localStorage";
 import { useForm } from "react-hook-form";
 import PersonalPreview from "../preview/PersonalPreview";
+import useLocalStorage from "../../utils/localStorage";
 
 import {errorBorder, errorColor} from "../../utils/helpFunctions.js"
 
@@ -36,7 +36,7 @@ const Personal = () => {
       JSON.stringify(["name", name, "lastname", lastname, "about", about, "email", email, "phone", phone])
     );
   };
-
+  
   return (
     <section>
       <form action="" onSubmit={handleSubmit(onSubmit)} className="form-inputs">
@@ -91,8 +91,9 @@ const Personal = () => {
                   })}
                   className="short-input-label"
                   style={errors.name && errorBorder}
-                  value={name}
+                
                   onChange={(e) => setName(e.target.value)}
+                  value={name}
                 />
 
                 <div className="hint">მინიმუმ 2 ასო, ქართული ასოები</div>

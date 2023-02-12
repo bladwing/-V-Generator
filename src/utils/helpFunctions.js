@@ -6,4 +6,6 @@ export const errorColor = {
     color: "red",
   };
 
-export const ClearStorage = localStorage.clear()
+export const ClearStorage = () => {
+  localStorage.clear()
+}

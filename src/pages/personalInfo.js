@@ -7,8 +7,8 @@ const PersonalInfoPage = () => {
     <div className="two-side-container">
       <div className="first-side">
         <div className="page_header">
-          <Link to="/" className="back-arrow" onClick={ClearStorage}>
-            <img src="./img/icon/back.svg" alt="goBack" />
+          <Link to="/" className="back-arrow">
+            <img src="./img/icon/back.svg" alt="goBack" onClick={() => ClearStorage()}/>
           </Link>
           <h1>ᲞᲘᲠᲐᲓᲘ ᲘᲜᲤᲝ</h1>
           <div>1/3</div>
