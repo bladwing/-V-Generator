@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import PersonalPreview from "../preview/PersonalPreview";
 import useLocalStorage from "../../utils/localStorage";
 
-import {errorBorder, errorColor} from "../../utils/helpFunctions.js"
+import { errorBorder, errorColor } from "../../utils/helpFunctions.js";
 
 import "./personal.scss";
 
@@ -27,16 +27,28 @@ const Personal = () => {
 
   const onSubmit = (data) => {
     localStorage.setItem("infromation", JSON.stringify([data])) &&
-    localStorage.removeItem("temporaryInfromation")
+      localStorage.removeItem("temporaryInfromation");
   };
 
   const onChange = () => {
     localStorage.setItem(
       "temporaryInfromation",
-      JSON.stringify(["name", name, "lastname", lastname, "about", about, "email", email, "phone", phone])
+      JSON.stringify([
+        "name",
+        name,
+        "lastname",
+        lastname,
+        "about",
+        about,
+        "email",
+        email,
+        "phone",
+        phone,
+      ])
     );
   };
-  
+
+
   return (
     <section>
       <form action="" onSubmit={handleSubmit(onSubmit)} className="form-inputs">
@@ -56,19 +68,20 @@ const Personal = () => {
                       <img src="img/error.png" alt="error" />
                     </p>
                   )}
+
                   {errors.name && errors.name.type === "pattern" && (
                     <p className="errorMsg" style={errors.name && errorColor}>
                       მხოლოდ ქართული ასობები.
                       <img src="img/error.png" alt="error" />
                     </p>
                   )}
+
                   {errors.name && errors.name.type === "minLength" && (
                     <p className="errorMsg" style={errors.name && errorColor}>
                       მინიმუმ ორი სიმბოლო.
                       <img src="img/error.png" alt="error" />
                     </p>
                   )}
-
                   {errors.name === undefined &&
                     getValues("name") !== undefined &&
                     getValues("name") !== "" && (
@@ -87,12 +100,11 @@ const Personal = () => {
                   {...register("name", {
                     required: { value: true },
                     minLength: { value: 2 },
-                    pattern: { value: /^[ა-ჰ]+$/ }
+                    pattern: { value: /^[ა-ჰ]+$/ },
+                    onChange: (e) => setName(e.target.value),
                   })}
                   className="short-input-label"
                   style={errors.name && errorBorder}
-                
-                  onChange={(e) => setName(e.target.value)}
                   value={name}
                 />
 
@@ -118,7 +130,7 @@ const Personal = () => {
                       className="errorMsg"
                       style={errors.lastname && errorColor}
                     >
-                      მხოლოდ ქართული ასობები.{" "}
+                      მხოლოდ ქართული ასობები.
                       <img src="img/error.png" alt="error" />
                     </p>
                   )}
@@ -127,7 +139,7 @@ const Personal = () => {
                       className="errorMsg"
                       style={errors.lastname && errorColor}
                     >
-                      მინიმუმ ორი სიმბოლო.{" "}
+                      მინიმუმ ორი სიმბოლო.
                       <img src="img/error.png" alt="error" />
                     </p>
                   )}
@@ -152,9 +164,9 @@ const Personal = () => {
                     required: true,
                     minLength: { value: 2 },
                     pattern: { value: /^[ა-ჰ]+$/ },
+                    onChange: (e) => setLastname(e.target.value),
                   })}
                   value={lastname}
-                  onChange={(e) => setLastname(e.target.value)}
                 />
 
                 <div className="hint">მინიმუმ 2 ასო, ქართული ასოები</div>
