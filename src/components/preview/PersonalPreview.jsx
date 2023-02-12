@@ -1,17 +1,9 @@
-import { useEffect } from "react";
-import { useState } from "react";
 import "./preview.scss";
 
 const PersonalPreview = (props) => {
-  const [data, setData] = useState("");
 
-  useEffect(() => {}, []);
 
-  console.log(data);
-  console.log(props.name);
-
-  console.log(props.img);
-
+  
   return (
     <div className="section">
       <div className="personal-preview">

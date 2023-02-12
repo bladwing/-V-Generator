@@ -54,29 +54,24 @@ const Personal = () => {
       ])
     );
   };
- 
-
-  const handleFileSelect = (e) => {
-
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      
-      reader.onload = () => {
-        const dataUrl = reader.result;
-        setImg((prev) => ({ ...prev, image: dataUrl}));
-      };
-      
-    }
-  };
+   
+    const handleFileSelect = e => {
+      if (e.target.files[0]) {
+        console.log("picture: ", e.target.files);
+        setImg(e.target.files[0]);
+        const reader = new FileReader();
+        reader.addEventListener("load", () => {
+          setImg(reader.result);
+        });
+      reader.readAsDataURL(e.target.files[0]);
+      }
+  }
+  
 
 
-  console.log(img)
   return (
     <Fragment>
     <section>
-      
       <form action="" onSubmit={handleSubmit(onSubmit)} className="form-inputs">
         <table cellPadding={28}>
           <tbody>
@@ -209,7 +204,7 @@ const Personal = () => {
                   type="file"
                   name="image"
                   onChange={handleFileSelect}
-                  {...register("upload-photo", { required: true })}
+                  // {...register("upload-photo", { required: true })}
                 />
                 
                    <label htmlFor="file" className="upload-button ">ატვირთვა</label>

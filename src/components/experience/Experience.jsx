@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import "./experience.scss";
+import PersonalPreview from "../preview/PersonalPreview";
 
 const Experience = () => {
   const { register, handleSubmit, errors } = useForm();
@@ -114,6 +115,8 @@ const Experience = () => {
           <button className="submit-button">ᲨᲔᲛᲓᲔᲒᲘ</button>
         </div>
       </form>
+
+      <PersonalPreview/>
     </section>
   );
 };
