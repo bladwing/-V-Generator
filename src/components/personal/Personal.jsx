@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import PersonalPreview from "../preview/PersonalPreview";
 import useLocalStorage from "../../utils/localStorage";
+import InputMask from "react-input-mask";
 
 import { errorBorder, errorColor, DeleteItemLS} from "../../utils/helpFunctions.js";
 
@@ -280,8 +281,10 @@ const Personal = () => {
                       />
                     )}
                 </div>
-                <input
+                <InputMask
                   type="text"
+                  mask="+999 999 99 99 99"
+                  maskChar={null}
                   className="long-label-inputs"
                   placeholder="+995 551 12 34 56"
                   id="phone"
