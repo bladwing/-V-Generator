@@ -1,8 +1,21 @@
+import { useEffect } from "react";
+import useLocalStorage from "../../utils/localStorage";
 import { useForm } from "react-hook-form";
+import PersonalPreview from "../preview/PersonalPreview";
 
 import "./personal.scss";
 
 const Personal = () => {
+  const [name, setName] = useLocalStorage("name");
+  const [lastname, setLastname] = useLocalStorage("lastsname");
+  const [about, setAbout] = useLocalStorage("about");
+  const [email, setEmail] = useLocalStorage("email");
+  const [phone, setPhone] = useLocalStorage("phone");
+
+  useEffect(() => {
+    onChange();
+  });
+
   const {
     register,
     handleSubmit,
@@ -11,9 +24,17 @@ const Personal = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-    localStorage.setItem("personalInformation", JSON.stringify([data]));
+    localStorage.setItem("infromation", JSON.stringify([data])) &&
+    localStorage.removeItem("temporaryInfromation")
   };
+
+  const onChange = () => {
+    localStorage.setItem(
+      "temporaryInfromation",
+      JSON.stringify(["name", name, "lastname", lastname, "about", about, "email", email, "phone", phone])
+    );
+  };
+
 
 
   const errorBorder = {
@@ -45,13 +66,13 @@ const Personal = () => {
                   )}
                   {errors.name && errors.name.type === "pattern" && (
                     <p className="errorMsg" style={errors.name && errorColor}>
-                      მხოლოდ ქართული ასობები.{" "}
+                      მხოლოდ ქართული ასობები.
                       <img src="img/error.png" alt="error" />
                     </p>
                   )}
                   {errors.name && errors.name.type === "minLength" && (
                     <p className="errorMsg" style={errors.name && errorColor}>
-                      მინიმუმ ორი სიმბოლო.{" "}
+                      მინიმუმ ორი სიმბოლო.
                       <img src="img/error.png" alt="error" />
                     </p>
                   )}
@@ -78,7 +99,10 @@ const Personal = () => {
                   })}
                   className="short-input-label"
                   style={errors.name && errorBorder}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
+
                 <div className="hint">მინიმუმ 2 ასო, ქართული ასოები</div>
               </td>
 
@@ -136,6 +160,8 @@ const Personal = () => {
                     minLength: { value: 2 },
                     pattern: { value: /^[ა-ჰ]+$/ },
                   })}
+                  value={lastname}
+                  onChange={(e) => setLastname(e.target.value)}
                 />
 
                 <div className="hint">მინიმუმ 2 ასო, ქართული ასოები</div>
@@ -167,6 +193,8 @@ const Personal = () => {
                   id="about"
                   placeholder="ზოგადი ინფო შენ შესახებ"
                   {...register("about")}
+                  value={about}
+                  onChange={(e) => setAbout(e.target.value)}
                 ></textarea>
               </td>
             </tr>
@@ -209,6 +237,8 @@ const Personal = () => {
                     },
                     required: { value: true },
                   })}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
 
                 <div className="hint">უნდა მთავრდებოდეს @redberry.ge-ით</div>
@@ -252,6 +282,8 @@ const Personal = () => {
                       value: /^\+995\s\d{3}\s\d{2}\s\d{2}\s\d{2}$/,
                     },
                   })}
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                 />
                 <div className="hint">
                   უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს
@@ -264,6 +296,8 @@ const Personal = () => {
           <button className="submit-button">ᲨᲔᲛᲓᲔᲒᲘ</button>
         </div>
       </form>
+
+      <PersonalPreview name={name} />
     </section>
   );
 };
