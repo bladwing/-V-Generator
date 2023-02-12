@@ -1,16 +1,19 @@
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import PersonalPreview from "../preview/PersonalPreview";
 import useLocalStorage from "../../utils/localStorage";
 import InputMask from "react-input-mask";
 
-import { errorBorder, errorColor, DeleteItemLS} from "../../utils/helpFunctions.js";
+import {
+  errorBorder,
+  errorColor,
+  DeleteItemLS,
+} from "../../utils/helpFunctions.js";
 
 import "./personal.scss";
 
 const Personal = () => {
-
   const Navigate = useNavigate();
   const [name, setName] = useLocalStorage("name");
   const [lastname, setLastname] = useLocalStorage("lastname");
@@ -32,16 +35,11 @@ const Personal = () => {
   const onSubmit = (data) => {
     localStorage.setItem("infromation", JSON.stringify([data]));
     DeleteItemLS();
-    Navigate('/experience');
+    Navigate("/experience");
   };
 
   const onChange = () => {
-    localStorage.setItem(
-      "temporaryInfromation",
-      JSON.stringify([
-        "name",
-        name,
-        "lastname",
+    localStorage.setItem("temporaryInfromation", JSON.stringify(["name", name, "lastname",
         lastname,
         "about",
         about,
@@ -52,10 +50,11 @@ const Personal = () => {
       ])
     );
   };
-
-
+ 
   return (
+    <Fragment>
     <section>
+      
       <form action="" onSubmit={handleSubmit(onSubmit)} className="form-inputs">
         <table cellPadding={28}>
           <tbody>
@@ -111,7 +110,6 @@ const Personal = () => {
                   value={name}
                   className="short-input-label"
                   style={errors.name && errorBorder}
-                  
                 />
 
                 <div className="hint">მინიმუმ 2 ასო, ქართული ასოები</div>
@@ -204,9 +202,9 @@ const Personal = () => {
                   id="about"
                   placeholder="ზოგადი ინფო შენ შესახებ"
                   {...register("about", {
-                  onChange: (e) => setAbout(e.target.value)})}
+                    onChange: (e) => setAbout(e.target.value),
+                  })}
                   value={about}
-                
                 ></textarea>
               </td>
             </tr>
@@ -248,7 +246,7 @@ const Personal = () => {
                       value: /^[a-zA-Z0-9.]+@redberry.ge$/,
                     },
                     required: { value: true },
-                    onChange: (e) => setEmail(e.target.value)
+                    onChange: (e) => setEmail(e.target.value),
                   })}
                   value={email}
                 />
@@ -294,10 +292,9 @@ const Personal = () => {
                     pattern: {
                       value: /^\+995\s\d{3}\s\d{2}\s\d{2}\s\d{2}$/,
                     },
-                    onChange: (e) => setPhone(e.target.value)
+                    onChange: (e) => setPhone(e.target.value),
                   })}
                   value={phone}
-
                 />
                 <div className="hint">
                   უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს
@@ -310,10 +307,18 @@ const Personal = () => {
           <button className="submit-button">ᲨᲔᲛᲓᲔᲒᲘ</button>
         </div>
       </form>
-
-      <PersonalPreview name={name} />
+  
+    
     </section>
+                <div>
+                <PersonalPreview name={name} lastname={lastname} email={email} phone={phone} about={about}/>
+                </div>
+  
+      
+
+        </Fragment>
   );
+  
 };
 
 export default Personal;

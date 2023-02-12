@@ -1,4 +1,13 @@
-.preview-container {
+.SECTION {
     border: 1px solid red;
-
+    margin-left: 56.9%;
+    bottom: 73%;
+    width: 43%;
+    position: absolute;
+    table {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        margin: 0 auto;
+    }
 }

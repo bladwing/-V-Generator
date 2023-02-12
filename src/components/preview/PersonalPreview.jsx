@@ -1,28 +1,50 @@
-import { useEffect, useState } from "react";
-import "./preview.scss"
-
-
+import { useEffect } from "react";
+import { useState } from "react";
+import "./preview.scss";
 
 const PersonalPreview = (props) => {
+  const [data, setData] = useState("");
 
-  useEffect(() => {
-    Information()
-  })
+  useEffect(() => {setData(props.name)
+  }, []);
 
-  const [data, setData] = useState('')
+  console.log(data);
+  console.log(props.name)
 
 
-const Information = () => {
-  setData(props.name)
+
   return (
-    console.log()
-  )
- 
-
-}
-
-
-
+    <div className="SECTION">
+      <table>
+        <thead>
+          <tr>
+            <td>
+              <h1>{props.name}</h1>
+            </td>
+            <td>
+            <h1>{props.lastname}</h1>
+            </td>
+            <td>
+              <img src="" alt="logo" style={{width: "100px", height: "100px", border: "1px solid red", padding: "30px", borderRadus: "30px"}} />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h3>{props.email}</h3>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h3>{props.phone}</h3>
+            </td>
+          </tr>
+          <tr>
+            {props.about}
+          </tr>
+        </thead>
+      </table>
+    </div>
+  );
 };
 
 export default PersonalPreview;
