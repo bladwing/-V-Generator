@@ -21,6 +21,8 @@ const Personal = () => {
   const [email, setEmail] = useLocalStorage("email");
   const [phone, setPhone] = useLocalStorage("phone");
 
+  const [img, setImg] = useLocalStorage("img");
+
   useEffect(() => {
     onChange();
   });
@@ -47,10 +49,30 @@ const Personal = () => {
         email,
         "phone",
         phone,
+        img,
+        "img",
       ])
     );
   };
  
+
+  const handleFileSelect = (e) => {
+
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      
+      reader.onload = () => {
+        const dataUrl = reader.result;
+        setImg((prev) => ({ ...prev, image: dataUrl}));
+      };
+      
+    }
+  };
+
+
+  console.log(img)
   return (
     <Fragment>
     <section>
@@ -179,17 +201,18 @@ const Personal = () => {
 
             <tr>
               <td className="upload-file">
-                <label htmlFor="upload-photo">პირადი ფოტოს ატვირთვა</label>
-                <input
-                  id="upload-photo"
+                <h4>
+                  პირადი ფოტოს ატვირთვა
+                </h4>
+                  <input
+                  id="file"
                   type="file"
-                  accept="image/*"
-                  hidden
+                  name="image"
+                  onChange={handleFileSelect}
                   {...register("upload-photo", { required: true })}
                 />
-                <button className="upload-button" type="button">
-                  ატვირთვა
-                </button>
+                
+                   <label htmlFor="file" className="upload-button ">ატვირთვა</label>
               </td>
             </tr>
             <tr>
@@ -311,7 +334,7 @@ const Personal = () => {
     
     </section>
                 <div>
-                <PersonalPreview name={name} lastname={lastname} email={email} phone={phone} about={about}/>
+                <PersonalPreview name={name} lastname={lastname} email={email} phone={phone} about={about} img={img}/>
                 </div>
   
       

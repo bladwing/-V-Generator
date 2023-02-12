@@ -11,6 +11,7 @@ const PersonalPreview = (props) => {
   console.log(data);
   console.log(props.name)
 
+console.log(props.img)
 
 
   return (
@@ -25,7 +26,7 @@ const PersonalPreview = (props) => {
             <h1>{props.lastname}</h1>
             </td>
             <td>
-              <img src="" alt="logo" style={{width: "100px", height: "100px", border: "1px solid red", padding: "30px", borderRadus: "30px"}} />
+              <img src={props.img} alt="logo" style={{width: "100px", height: "100px", border: "1px solid red", padding: "30px", borderRadus: "30px"}} />
             </td>
           </tr>
           <tr>
@@ -39,7 +40,7 @@ const PersonalPreview = (props) => {
             </td>
           </tr>
           <tr>
-            {props.about}
+            <td>{props.about}</td>
           </tr>
         </thead>
       </table>

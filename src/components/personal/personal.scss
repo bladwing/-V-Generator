@@ -1,5 +1,12 @@
     .upload-file {
         border: none;
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        font-family: 'Helvetica Neue';
+        input[type="file"] {
+            display: none;
+        }
 
         .upload-button {
             padding: 6px 14px;
@@ -10,16 +17,19 @@
             color: white;
             cursor: pointer;
             border: none;
+            font-size: 14px;
+            font-family: 'Helvetica Neue';
+            font-weight: 400;
         }
 
     }
-
     textarea {
         box-sizing: border-box;
         min-width: 798px;
         max-width: 798px;
         min-height: 103px;
         max-height: 103px;
+        padding: 10px;
     }
 
     .email,
@@ -28,12 +38,13 @@
             width: 798px;
         }
     }
+
     .button-container-personal {
         display: flex;
         justify-content: right;
         width: 900px;
+
         a {
             margin: 0px;
         }
     }
-
