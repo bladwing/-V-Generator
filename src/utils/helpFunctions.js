@@ -1,11 +1,20 @@
 export const errorBorder = {
-    border: "1px solid red",
-  };
+  border: "1px solid red",
+};
 
 export const errorColor = {
-    color: "red",
-  };
+  color: "red",
+};
 
 export const ClearStorage = () => {
-  localStorage.clear()
-}
+  localStorage.clear();
+};
+
+export const DeleteItemLS = () => {
+  localStorage.removeItem("temporaryInfromation");
+  localStorage.removeItem("name");
+  localStorage.removeItem("lastname");
+  localStorage.removeItem("email");
+  localStorage.removeItem("phone");
+  localStorage.removeItem("about");
+};

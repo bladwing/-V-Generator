@@ -1,15 +1,18 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import PersonalPreview from "../preview/PersonalPreview";
 import useLocalStorage from "../../utils/localStorage";
 
-import { errorBorder, errorColor } from "../../utils/helpFunctions.js";
+import { errorBorder, errorColor, DeleteItemLS} from "../../utils/helpFunctions.js";
 
 import "./personal.scss";
 
 const Personal = () => {
+
+  const Navigate = useNavigate();
   const [name, setName] = useLocalStorage("name");
-  const [lastname, setLastname] = useLocalStorage("lastsname");
+  const [lastname, setLastname] = useLocalStorage("lastname");
   const [about, setAbout] = useLocalStorage("about");
   const [email, setEmail] = useLocalStorage("email");
   const [phone, setPhone] = useLocalStorage("phone");
@@ -26,8 +29,9 @@ const Personal = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    localStorage.setItem("infromation", JSON.stringify([data])) &&
-      localStorage.removeItem("temporaryInfromation");
+    localStorage.setItem("infromation", JSON.stringify([data]));
+    DeleteItemLS();
+    Navigate('/experience');
   };
 
   const onChange = () => {
