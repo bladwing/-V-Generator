@@ -108,9 +108,10 @@ const Personal = () => {
                     pattern: { value: /^[ა-ჰ]+$/ },
                     onChange: (e) => setName(e.target.value),
                   })}
+                  value={name}
                   className="short-input-label"
                   style={errors.name && errorBorder}
-                  value={name}
+                  
                 />
 
                 <div className="hint">მინიმუმ 2 ასო, ქართული ასოები</div>
@@ -202,9 +203,10 @@ const Personal = () => {
                   rows="10"
                   id="about"
                   placeholder="ზოგადი ინფო შენ შესახებ"
-                  {...register("about")}
+                  {...register("about", {
+                  onChange: (e) => setAbout(e.target.value)})}
                   value={about}
-                  onChange={(e) => setAbout(e.target.value)}
+                
                 ></textarea>
               </td>
             </tr>
@@ -246,9 +248,9 @@ const Personal = () => {
                       value: /^[a-zA-Z0-9.]+@redberry.ge$/,
                     },
                     required: { value: true },
+                    onChange: (e) => setEmail(e.target.value)
                   })}
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
                 />
 
                 <div className="hint">უნდა მთავრდებოდეს @redberry.ge-ით</div>
@@ -284,7 +286,6 @@ const Personal = () => {
                 <InputMask
                   type="text"
                   mask="+999 999 99 99 99"
-                  maskChar={null}
                   className="long-label-inputs"
                   placeholder="+995 551 12 34 56"
                   id="phone"
@@ -293,9 +294,10 @@ const Personal = () => {
                     pattern: {
                       value: /^\+995\s\d{3}\s\d{2}\s\d{2}\s\d{2}$/,
                     },
+                    onChange: (e) => setPhone(e.target.value)
                   })}
                   value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
+
                 />
                 <div className="hint">
                   უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს
