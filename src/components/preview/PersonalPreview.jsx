@@ -7,7 +7,13 @@ const PersonalPreview = (props) => {
   const [photo, setPhoto] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [about, setAbout] = useState();
+  const [about, setAbout] = useState("");
+
+  const [position, setPosition] = useState("");
+  const [company, setCompany] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [jobDescription, setJobDescription] = useState("");
 
   useEffect(() => {
     UpdateInfo();
@@ -20,6 +26,12 @@ const PersonalPreview = (props) => {
     setPhoto(JSON.parse(localStorage.getItem("image")));
     setEmail(JSON.parse(localStorage.getItem("email")));
     setPhone(JSON.parse(localStorage.getItem("phone")));
+
+    setPosition(JSON.parse(localStorage.getItem("position")));
+    setCompany(JSON.parse(localStorage.getItem("company")));
+    setStartDate(JSON.parse(localStorage.getItem("startDate")));
+    setEndDate(JSON.parse(localStorage.getItem("endDate")));
+    setJobDescription(JSON.parse(localStorage.getItem("jobDescription")));
   };
 
   return (
@@ -29,7 +41,6 @@ const PersonalPreview = (props) => {
           <h1>
             {name} {lastname}
           </h1>
-
           <h3>
             <img
               src="/img/icon/email-icon.png"
@@ -40,7 +51,6 @@ const PersonalPreview = (props) => {
                 height: "16.67px",
               }}
             />
-
             {email}
           </h3>
 
@@ -62,6 +72,23 @@ const PersonalPreview = (props) => {
         </div>
         <img className="profile-photo" src={props.img} alt="logo" />
       </div>
+
+      <div className="experience-preview">
+        <div
+          style={{
+            display: position === "" && company === "" ? "none" : "block",
+          }} className="job-header"
+        > <hr />
+          ᲒᲐᲛᲝᲪᲓᲘᲚᲔᲑᲐ
+        </div>
+        <h3>
+          {position}, {company}
+        </h3>
+        <h4>{startDate} - {endDate}</h4>
+
+        <p style={{ lineBreak: "anywhere" }}>{jobDescription}</p>
+      </div>
+     
     </div>
   );
 };

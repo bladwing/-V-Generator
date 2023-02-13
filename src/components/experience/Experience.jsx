@@ -1,14 +1,27 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import "./experience.scss";
 import PersonalPreview from "../preview/PersonalPreview";
+import useLocalStorage from "../../utils/localStorage";
+import { errorBorder } from "../../utils/helpFunctions";
+
+import "./experience.scss";
 
 const Experience = () => {
-  const { register, handleSubmit, errors } = useForm();
+  const [position, setPosition] = useLocalStorage("position");
+  const [company, setCompany] = useLocalStorage("company");
+  const [startDate, setStartDate] = useLocalStorage("startDate");
+  const [endDate, setEndDate] = useLocalStorage("endDate");
+  const [jobDescription, setJobDescription] = useLocalStorage("jobDescription");
+const Navigate = useNavigate()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-    localStorage.setItem("experienceinformation", JSON.stringify([data]));
+    localStorage.setItem("Experience", JSON.stringify([data]));
+    Navigate('/education')
   };
 
   return (
@@ -18,34 +31,89 @@ const Experience = () => {
           <thead>
             <tr>
               <td>
-                <label htmlFor="postion">თანამდებობა</label>
-                <br />
+                <div className="long-input-error-handler">
+                  <label htmlFor="postion">თანამდებობა</label>
+                  <br />
+                  {errors.postion && errors.postion.type === "required" && (
+                    <p className="errorMsg">
+                      სავალდებულო ველი
+                      <img src="img/error.png" alt="error" />
+                    </p>
+                  )}
+                  {errors.position && errors.position.type === "minLength" && (
+                    <p className="errorMsg">
+                      მინიმუმ ორი სიმბოლო.
+                      <img src="img/error.png" alt="error" />
+                    </p>
+                  )}
+                  {position !== "" &&
+                  position !== undefined &&
+                  position.length >= 2 ? (
+                    <img
+                      src="/img/valid.png"
+                      alt="valid"
+                      className="long-input-valid-img"
+                    />
+                  ) : (
+                    ""
+                  )}
+                </div>
                 <input
                   type="text"
                   id="postion"
                   placeholder="თანამდებობა"
                   className="long-label-inputs"
+                  value={position}
                   {...register("postion", {
                     required: true,
                     minLength: { value: 2 },
+                    onChange: (e) => setPosition(e.target.value),
                   })}
                 />
+
                 <div className="hint">მინიმუმ 2 სიმბოლო</div>
               </td>
             </tr>
 
             <tr>
               <td>
-                <label htmlFor="costumer">დამსაქმებელი</label>
-                <br />
+                <div className="long-input-error-handler">
+                  <label htmlFor="company">დამსაქმებელი</label>
+                  <br />
+                  {errors.company && errors.company.type === "required" && (
+                    <p className="errorMsg">
+                      სავალდებულო ველი
+                      <img src="img/error.png" alt="error" />
+                    </p>
+                  )}
+                  {errors.company && errors.company.type === "minLength" && (
+                    <p className="errorMsg">
+                      მინიმუმ ორი სიმბოლო.
+                      <img src="img/error.png" alt="error" />
+                    </p>
+                  )}
+                  {company !== "" &&
+                  company !== undefined &&
+                  company.length >= 2 ? (
+                    <img
+                      src="/img/valid.png"
+                      alt="valid"
+                      className="long-input-valid-img"
+                    />
+                  ) : (
+                    ""
+                  )}
+                </div>
                 <input
                   type="text"
-                  id="costumer"
+                  id="company"
                   placeholder="დამსაქმებელი"
                   className="long-label-inputs"
+                  value={company}
                   {...register("costumer", {
                     required: true,
                     minLength: { value: 2 },
+                    onChange: (e) => setCompany(e.target.value),
                   })}
                 />
                 <div className="hint">მინიმუმ 2 სიმბოლო</div>
@@ -56,14 +124,30 @@ const Experience = () => {
               <td>
                 <label htmlFor="startFrom">დაწყების რიცხვი</label>
                 <br />
+
                 <input
                   type="date"
                   id="startFrom"
                   className="date-inputs"
-                  {...register("startFrom", {
+                  style={errors.startDate && errorBorder}
+                  value={startDate}
+                  {...register("startDate", {
                     required: true,
+                    onChange: (e) => setStartDate(e.target.value),
                   })}
                 />
+                {errors.startDate && errors.startDate.type === "required" && (
+                  <img src="img/error.png" alt="error" />
+                )}
+                {startDate !== "" ? (
+                  <img
+                    src="/img/valid.png"
+                    alt="valid"
+                    className="long-input-valid-img"
+                  />
+                ) : (
+                  ""
+                )}
               </td>
               <td>
                 <label htmlFor="endFrom">დამთავრების რიცხვი</label>
@@ -72,23 +156,59 @@ const Experience = () => {
                   type="date"
                   id="endFrom"
                   className="date-inputs"
-                  {...register("endFrom", {
+                  style={errors.startDate && errorBorder}
+                  value={endDate}
+                  {...register("endDate", {
                     required: true,
+                    onChange: (e) => setEndDate(e.target.value),
                   })}
                 />
+                {errors.endDate && errors.endDate.type === "required" && (
+                  <img src="img/error.png" alt="error" />
+                )}
+                {endDate !== "" ? (
+                  <img
+                    src="/img/valid.png"
+                    alt="valid"
+                    className="long-input-valid-img"
+                  />
+                ) : (
+                  ""
+                )}
               </td>
             </tr>
-
             <tr>
               <td>
                 <label htmlFor="jobDescription">აღწერა</label>
-                <br />
+     
+                <div className="long-input-error-handler">
+                
+                {errors.jobDescription &&
+                  errors.jobDescription.type === "required" && (
+                    <p className="errorMsg">
+                        სავალდებულო ველი
+                    <img src="img/error.png" alt="error" />
+                    </p>
+                  )}
+                {jobDescription !== "" ? (
+                  <img
+                    src="/img/valid.png"
+                    alt="valid"
+                    className="long-input-valid-img"
+                  />
+                ) : (
+                  ""
+                )}
+                </div>
                 <textarea
                   type="text"
                   id="jobDescription"
                   placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"
+                  style={errors.jobDescription && errorBorder}
+                  value={jobDescription}
                   {...register("jobDescription", {
                     required: true,
+                    onChange: (e) => setJobDescription(e.target.value),
                   })}
                 />
               </td>
@@ -115,7 +235,7 @@ const Experience = () => {
           <button className="submit-button">ᲨᲔᲛᲓᲔᲒᲘ</button>
         </div>
       </form>
-      <PersonalPreview/>
+      <PersonalPreview />
     </section>
   );
 };
