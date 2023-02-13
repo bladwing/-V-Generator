@@ -9,7 +9,9 @@
         flex-wrap: wrap;
         justify-content: space-between;
     }
-
+    .errorMsg {
+        color: red;
+    }
     .hint {
         width: 100%;
         font-family: 'Helvetica Neue';
@@ -73,6 +75,9 @@
     background: #FFFFFF;
     border: 1px solid #BCBCBC;
     border-radius: 4px;
+    .errorMsg {
+        color: red;
+    }
 }
 
 .short-input-label {
