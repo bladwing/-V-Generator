@@ -15,6 +15,11 @@ const PersonalPreview = (props) => {
   const [endDate, setEndDate] = useState("");
   const [jobDescription, setJobDescription] = useState("");
 
+  const [educenter, setEducenter] = useState("");
+  const [quality, setQuality] = useState("");
+  const [endEduDate, setEndEduDate] = useState("");
+  const [eduDescription, setEduDescription] = useState("");
+
   useEffect(() => {
     UpdateInfo();
   });
@@ -32,6 +37,12 @@ const PersonalPreview = (props) => {
     setStartDate(JSON.parse(localStorage.getItem("startDate")));
     setEndDate(JSON.parse(localStorage.getItem("endDate")));
     setJobDescription(JSON.parse(localStorage.getItem("jobDescription")));
+
+    setEducenter(JSON.parse(localStorage.getItem("educenter")));
+    setQuality(JSON.parse(localStorage.getItem("quality")));
+    setEndEduDate(JSON.parse(localStorage.getItem("endEduDate")));
+    setEduDescription(JSON.parse(localStorage.getItem("eduDescription")));
+  
   };
 
   return (
@@ -88,7 +99,20 @@ const PersonalPreview = (props) => {
 
         <p style={{ lineBreak: "anywhere" }}>{jobDescription}</p>
       </div>
-     
+
+      <div className="eduction-preview">
+
+        <div
+          style={{
+            display: educenter === "" ? "none" : "block",
+          }} className="edu-header"
+        > <hr />
+          ᲒᲐᲜᲐᲗᲚᲔᲑᲐ
+        </div>
+        <h3>{educenter}, {quality}</h3>
+        <h4>{endEduDate}</h4>
+        <p style={{lineBreak: "anywhere"}}>{eduDescription}</p>
+      </div>
     </div>
   );
 };

@@ -3,9 +3,6 @@
     margin-left: 100%;
     bottom: 865px;
     width: 822px;
-
-
-
     .personal-preview {
         display: flex;
         justify-content: space-between;
@@ -104,3 +101,53 @@
         width: 662px;
     }
 }
+
+
+.eduction-preview { 
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 100px;
+
+    .edu-header {
+        font-family: 'HelveticaNeue';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+
+        color: #F93B1D;
+
+        hr {
+            width: 662px;
+            height: 0px;
+            border: 1px solid #C8C8C8;
+        }
+    }
+
+    h3 {
+        font-family: 'HelveticaNeue';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        width: 100%;
+        line-height: 10px;
+        font-size: 16px;
+        line-height: 20px;
+        color: #1A1A1A;
+    }
+
+    h4 {
+        font-family: 'HelveticaNeue';
+        font-style: italic;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 10px;
+        color: #919191;
+        width: 100%;
+    }
+    p {
+
+        width: 662px;
+    }
+}
+

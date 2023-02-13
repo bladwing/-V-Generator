@@ -12,6 +12,7 @@ const Experience = () => {
   const [startDate, setStartDate] = useLocalStorage("startDate");
   const [endDate, setEndDate] = useLocalStorage("endDate");
   const [jobDescription, setJobDescription] = useLocalStorage("jobDescription");
+  
 const Navigate = useNavigate()
   const {
     register,
