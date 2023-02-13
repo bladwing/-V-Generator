@@ -1,10 +1,8 @@
-import { Fragment, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import PersonalPreview from "../preview/PersonalPreview";
 import useLocalStorage from "../../utils/localStorage";
-
-import { errorBorder, DeleteItemLS } from "../../utils/helpFunctions.js";
+import PersonalPreview from "../preview/PersonalPreview";
+import { errorBorder } from "../../utils/helpFunctions.js";
 
 import "./personal.scss";
 
@@ -17,9 +15,6 @@ const Personal = () => {
   const [phone, setPhone] = useLocalStorage("phone");
   const [img, setImg] = useLocalStorage("img");
 
-  useEffect(() => {
-    onChange();
-  });
 
   const {
     register,
@@ -29,29 +24,9 @@ const Personal = () => {
 
   const onSubmit = (data) => {
     localStorage.setItem("infromation", JSON.stringify([data]));
-    DeleteItemLS();
     Navigate("/experience");
   };
 
-  const onChange = () => {
-    localStorage.setItem(
-      "temporaryInfromation",
-      JSON.stringify([
-        "name",
-        name,
-        "lastname",
-        lastname,
-        "about",
-        about,
-        "email",
-        email,
-        "phone",
-        phone,
-        img,
-        "img",
-      ])
-    );
-  };
 
   const handleFileSelect = (e) => {
     if (e.target.files[0]) {
@@ -66,7 +41,6 @@ const Personal = () => {
   };
 
   return (
-    <Fragment>
       <section>
         <form
           action=""
@@ -199,6 +173,7 @@ const Personal = () => {
                     id="file"
                     type="file"
                     name="image"
+                    // value={img}
                     {...register("uploadPhoto", { required: true })}
                     onChange={handleFileSelect}
                   />
@@ -259,6 +234,7 @@ const Personal = () => {
 
                   <input
                     type="email"
+                    maxLength={50}
                     className="long-label-inputs"
                     id="email"
                     placeholder="anzorr666@redberry.ge"
@@ -307,6 +283,7 @@ const Personal = () => {
                   </div>
                   <input
                     type="text"
+                    maxLength={20}
                     mask="+999 999 99 99 99"
                     className="long-label-inputs"
                     placeholder="+995 551 12 34 56"
@@ -332,18 +309,8 @@ const Personal = () => {
             <button className="submit-button">ᲨᲔᲛᲓᲔᲒᲘ</button>
           </div>
         </form>
+        <PersonalPreview img={img}/>
       </section>
-      <div>
-        <PersonalPreview
-          name={name}
-          lastname={lastname}
-          email={email}
-          phone={phone}
-          about={about}
-          img={img}
-        />
-      </div>
-    </Fragment>
   );
 };
 

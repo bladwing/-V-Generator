@@ -15,7 +15,9 @@ const ExperiencePage = () => {
       </div>
       <Experience/>
       </div>
-      <div className="second-side">this is second side</div>
+      <div className="second-side">
+        
+        </div>
     </div>
   );
 };

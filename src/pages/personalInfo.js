@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-import PersonalPreview from "../components/preview/PersonalPreview"
 import Personal from "../components/personal/Personal";
-
 import { ClearStorage } from "../utils/helpFunctions";
 
 
@@ -19,9 +17,7 @@ const PersonalInfoPage = () => {
         </div>
         <Personal />
       </div>
-      <div className="second-side">
- 
-      </div>
+  
      
     </div>
   );

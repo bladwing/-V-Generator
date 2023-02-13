@@ -115,7 +115,6 @@ const Experience = () => {
           <button className="submit-button">ᲨᲔᲛᲓᲔᲒᲘ</button>
         </div>
       </form>
-
       <PersonalPreview/>
     </section>
   );
